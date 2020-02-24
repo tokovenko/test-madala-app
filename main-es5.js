@@ -2837,7 +2837,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       TOOLS[TOOLS["PIPETTE"] = 5] = "PIPETTE";
     })(TOOLS || (TOOLS = {}));
 
-    var DRAW_IMAGES = ['/assets/circle.svg', '/assets/test.svg', '/assets/skull.svg'];
+    var DRAW_IMAGES = ['/test-madala-app/assets/circle.svg', '/test-madala-app/assets/test.svg', '/test-madala-app/assets/skull.svg'];
     /***/
   },
 
