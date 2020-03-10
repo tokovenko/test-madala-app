@@ -1589,10 +1589,10 @@ var TOOLS;
     TOOLS[TOOLS["PIPETTE"] = 5] = "PIPETTE";
 })(TOOLS || (TOOLS = {}));
 const DRAW_IMAGES = [
-    '/assets/circle.svg',
-    '/assets/test.svg',
-    '/assets/skull.svg',
-    '/assets/lego.svg'
+    '/test-madala-app/assets/circle.svg',
+    '/test-madala-app/assets/test.svg',
+    '/test-madala-app/assets/skull.svg',
+    '/test-madala-app/assets/lego.svg'
 ];
 
 
