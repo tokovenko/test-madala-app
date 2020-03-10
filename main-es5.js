@@ -163,7 +163,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\n    <div class=\"undo-controls\">\n        <button \n            matTooltip=\"Undo\"\n            [disabled]=\"!hasUndo\"\n            mat-mini-fab\n            (click)=\"undo()\">\n            <mat-icon>undo</mat-icon>\n        </button>\n        <button \n            matTooltip=\"Redo\"\n            [disabled]=\"!hasRedo\"\n            mat-mini-fab\n            (click)=\"redo()\">\n            <mat-icon>redo</mat-icon>\n        </button>\n    </div>\n    <div class=\"tools\">\n        <div class=\"tools__item tools__item--zones\">\n            <button \n                matTooltip=\"Decrease Zones\"\n                mat-icon-button\n                (click)=\"decreaseZones()\">\n                <mat-icon>remove</mat-icon>\n            </button>\n            <span>{{zonesCount}}</span>\n            <button \n                matTooltip=\"Increase Zones\"\n                mat-icon-button\n                (click)=\"increaseZones()\">\n                <mat-icon>add</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n                (click)=\"enableTool(TOOLS.DRAW_FREE)\">\n                <mat-icon>gesture</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Line\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.DRAW_LINE)\"\n                [class.active]=\"isCurrentTool(TOOLS.DRAW_LINE)\">\n                <mat-icon>show_chart</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw with image\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n                (click)=\"enableTool(TOOLS.DRAW_IMAGE)\">\n                <mat-icon>collections</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Background\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BACKGROUND)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BACKGROUND)\">\n                <mat-icon>opacity</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                disabled\n                matTooltip=\"Fill Bucket\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BUCKET)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BUCKET)\">\n                <mat-icon>filter_b_and_w</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Pipette\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.PIPETTE)\"\n                [class.active]=\"isCurrentTool(TOOLS.PIPETTE)\">\n                <mat-icon>colorize</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Clear All\"\n                mat-fab \n                (click)=\"clear()\">\n                <mat-icon> layers_clear</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button\n                matTooltip=\"to SVG\"\n                mat-fab \n                (click)=\"toSVG()\">\n                <mat-icon> cloud_download</mat-icon>\n            </button>\n        </div>\n    </div>\n    <div class=\"sub-tools\">\n        <div\n            *ngIf=\"!isCurrentTool(TOOLS.DRAW_IMAGE)\" \n            class=\"sub-tools__item sub-tools__item--color\">\n            <div class=\"color-preview\"\n                 matTooltip=\"Change Color\"\n                 [style.background-color]=\"color$ | async\"\n                 (click)=\"toggleColorpicker()\"></div>\n        </div>\n        <div \n            *ngIf=\"isDrawTool\"\n            class=\"sub-tools__item\">\n            <mat-checkbox \n                matTooltip=\"Mirror Draw\"\n                [(ngModel)]=\"isMirrorEnabled\">mirror</mat-checkbox>\n        </div>\n        <div *ngIf=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n             class=\"sub-tools__item sub-tools__item--smooth-type\">\n            <mat-select [(value)]=\"smoothType\">\n                <mat-option \n                    *ngFor=\"let smoothType of smoothTypes\" \n                    [value]=\"smoothType.type\">\n                  {{smoothType.name}}\n                </mat-option>\n              </mat-select>\n        </div>\n        <div \n            *ngIf=\"isDrawWithStrokeTool\"\n            class=\"sub-tools__item sub-tools__item--stroke-width\">\n            <mat-slider\n                [min]=\"1\"\n                [max]=\"30\"\n                [step]=\"1\"\n                [thumbLabel]=\"true\"\n                [vertical]=\"true\"\n                [(ngModel)]=\"strokeWidth\">\n            </mat-slider>\n        </div>\n        <div \n            *ngIf=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n            class=\"sub-tools__item sub-tools__item--images\">\n            <div \n                *ngFor=\"let image of drawImages\"\n                [class.active]=\"isCurrentImageDraw(image.url)\"\n                (click)=\"setDrawImage($event)\">\n                <object [attr.data]=\"image.safeUrl\" [attr.data-url]=\"image.url\" type=\"image/svg+xml\"></object>\n            </div>\n        </div>\n    </div>\n</div>\n<div\n    class=\"colorpicker\"\n    [class.visible]=\"isVisibleColorpicker\">\n    <button \n        (click)=\"toggleColorpicker()\"\n        class=\"colorpicker__close\"\n        mat-fab \n        color=\"accent\">\n        <mat-icon>clear</mat-icon>\n    </button>\n    <app-mandala-editor-colorpicker \n        [color]=\"color$ | async\"\n        (changeColor)=\"onChangeColor($event)\">\n    </app-mandala-editor-colorpicker>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"container\">\n    <div class=\"undo-controls\">\n        <button \n            matTooltip=\"Undo\"\n            [disabled]=\"!hasUndo\"\n            mat-mini-fab\n            (click)=\"undo()\">\n            <mat-icon>undo</mat-icon>\n        </button>\n        <button \n            matTooltip=\"Redo\"\n            [disabled]=\"!hasRedo\"\n            mat-mini-fab\n            (click)=\"redo()\">\n            <mat-icon>redo</mat-icon>\n        </button>\n    </div>\n    <div class=\"tools\">\n        <div class=\"tools__item tools__item--zones\">\n            <button \n                matTooltip=\"Decrease Zones\"\n                mat-icon-button\n                (click)=\"decreaseZones()\">\n                <mat-icon>remove</mat-icon>\n            </button>\n            <span>{{zonesCount}}</span>\n            <button \n                matTooltip=\"Increase Zones\"\n                mat-icon-button\n                (click)=\"increaseZones()\">\n                <mat-icon>add</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n                (click)=\"enableTool(TOOLS.DRAW_FREE)\">\n                <mat-icon>gesture</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Line\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.DRAW_LINE)\"\n                [class.active]=\"isCurrentTool(TOOLS.DRAW_LINE)\">\n                <mat-icon>show_chart</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw with image\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n                (click)=\"enableTool(TOOLS.DRAW_IMAGE)\">\n                <mat-icon>collections</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Background\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BACKGROUND)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BACKGROUND)\">\n                <mat-icon>opacity</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Fill Bucket\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BUCKET)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BUCKET)\">\n                <mat-icon>filter_b_and_w</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Pipette\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.PIPETTE)\"\n                [class.active]=\"isCurrentTool(TOOLS.PIPETTE)\">\n                <mat-icon>colorize</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Clear All\"\n                mat-fab \n                (click)=\"clear()\">\n                <mat-icon> layers_clear</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button\n                matTooltip=\"to SVG\"\n                mat-fab \n                (click)=\"toSVG()\">\n                <mat-icon> cloud_download</mat-icon>\n            </button>\n        </div>\n    </div>\n    <div class=\"sub-tools\">\n        <div\n            *ngIf=\"!isCurrentTool(TOOLS.DRAW_IMAGE)\" \n            class=\"sub-tools__item sub-tools__item--color\">\n            <div class=\"color-preview\"\n                 matTooltip=\"Change Color\"\n                 [style.background-color]=\"color$ | async\"\n                 (click)=\"toggleColorpicker()\"></div>\n        </div>\n        <div \n            *ngIf=\"isDrawTool\"\n            class=\"sub-tools__item\">\n            <mat-checkbox \n                matTooltip=\"Mirror Draw\"\n                [(ngModel)]=\"isMirrorEnabled\">mirror</mat-checkbox>\n        </div>\n        <div *ngIf=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n             class=\"sub-tools__item sub-tools__item--smooth-type\">\n            <mat-select [(value)]=\"smoothType\">\n                <mat-option \n                    *ngFor=\"let smoothType of smoothTypes\" \n                    [value]=\"smoothType.type\">\n                  {{smoothType.name}}\n                </mat-option>\n              </mat-select>\n        </div>\n        <div \n            *ngIf=\"isDrawWithStrokeTool\"\n            class=\"sub-tools__item sub-tools__item--stroke-width\">\n            <mat-slider\n                [min]=\"1\"\n                [max]=\"30\"\n                [step]=\"1\"\n                [thumbLabel]=\"true\"\n                [vertical]=\"true\"\n                [(ngModel)]=\"strokeWidth\">\n            </mat-slider>\n        </div>\n        <div \n            *ngIf=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n            class=\"sub-tools__item sub-tools__item--images\">\n            <div \n                *ngFor=\"let image of drawImages\"\n                [class.active]=\"isCurrentImageDraw(image.url)\"\n                (click)=\"setDrawImage($event)\">\n                <object [attr.data]=\"image.safeUrl\" [attr.data-url]=\"image.url\" type=\"image/svg+xml\"></object>\n            </div>\n        </div>\n    </div>\n</div>\n<div\n    class=\"colorpicker\"\n    [class.visible]=\"isVisibleColorpicker\">\n    <button \n        (click)=\"toggleColorpicker()\"\n        class=\"colorpicker__close\"\n        mat-fab \n        color=\"accent\">\n        <mat-icon>clear</mat-icon>\n    </button>\n    <app-mandala-editor-colorpicker \n        [color]=\"color$ | async\"\n        (changeColor)=\"onChangeColor($event)\">\n    </app-mandala-editor-colorpicker>\n</div>";
     /***/
   },
 
@@ -183,7 +183,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div *ngIf=\"isLoaded\">\n    <app-mandala-editor-canvas [initState]=\"initState\"></app-mandala-editor-canvas>\n    <div \n        class=\"tools-container\"\n        [class.visible]=\"isVisibleTools\">\n        <app-mandala-editor-tools class=\"tools\"></app-mandala-editor-tools>\n        <div \n            class=\"toggle-tools\"\n            (click)=\"toggleTools()\">\n            <mat-icon>{{isVisibleTools ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon>\n        </div>\n    </div>\n</div>\n<div\n    *ngIf=\"isEnabledLoader$ | async as loading\"\n    class=\"loader\">\n    <mat-spinner></mat-spinner>\n</div>";
+    __webpack_exports__["default"] = "<div *ngIf=\"isLoaded\">\n    <app-mandala-editor-canvas [initState]=\"initState\"></app-mandala-editor-canvas>\n    <div \n        class=\"tools-container\"\n        [class.visible]=\"isVisibleTools\">\n        <app-mandala-editor-tools class=\"tools\"></app-mandala-editor-tools>\n        <div \n            class=\"toggle-tools\"\n            (click)=\"toggleTools()\">\n            <mat-icon>{{isVisibleTools ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon>\n        </div>\n    </div>\n</div>\n<div\n    *ngIf=\"isEnabledLoader\"\n    class=\"loader\">\n    <mat-spinner></mat-spinner>\n</div>";
     /***/
   },
 
@@ -1629,10 +1629,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.canvasService.setFillElement(this.fillCanvas.nativeElement);
           this.canvasService.setDrawElement(this.drawCanvas.nativeElement);
           this.canvasService.updateCanvasesSize(this.size);
+          this.layoutService.enableLoader();
           this.initDraw().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.destroy$)).subscribe(function () {
-            _this.editorService.inited();
-
             _this.undoService.clear();
+
+            if (_this.initState && _this.initState.tool) {
+              var _this$initState = _this.initState,
+                  tool = _this$initState.tool,
+                  color = _this$initState.color,
+                  strokeWidth = _this$initState.strokeWidth,
+                  zonesCount = _this$initState.zonesCount,
+                  isDrawMirrored = _this$initState.isDrawMirrored,
+                  smoothType = _this$initState.smoothType;
+
+              _this.editorService.setTool(tool);
+
+              _this.editorService.setColor(color);
+
+              _this.editorService.setStrokeWidth(strokeWidth);
+
+              _this.editorService.setZonesCount(zonesCount);
+
+              _this.editorService.setSmoothType(smoothType);
+
+              if (isDrawMirrored) {
+                _this.editorService.enableDrawMirrored();
+              } else {
+                _this.editorService.disableDrawMirrored();
+              }
+            }
+
+            _this.editorService.inited();
 
             _this.editorService.getTool().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(_this.destroy$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (tool) {
               return _this.toolService.createTool(tool);
@@ -1669,59 +1696,82 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this2 = this;
 
           var drawSteps = [];
+          var steps = this.initState.steps || {};
 
           var _loop = function _loop(key) {
-            if (_this2.initState.hasOwnProperty(key)) {
+            if (steps.hasOwnProperty(key)) {
               drawSteps.push(function () {
-                var step = _this2.initState[key];
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["delay"])(50), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function () {
+                  var step = steps[key];
 
-                _this2.editorService.setTool(step.tool);
+                  _this2.editorService.setTool(step.tool);
 
-                _this2.editorService.setColor(step.color);
+                  _this2.editorService.setColor(step.color);
 
-                _this2.editorService.setStrokeWidth(step.strokeWidth);
+                  _this2.editorService.setStrokeWidth(step.strokeWidth);
 
-                _this2.editorService.setZonesCount(step.zonesCount);
+                  _this2.editorService.setZonesCount(step.zonesCount);
 
-                if (step.isDrawMirrored) {
-                  _this2.editorService.enableDrawMirrored();
-                } else {
-                  _this2.editorService.disableDrawMirrored();
-                }
+                  _this2.editorService.setSmoothType(step.smoothType);
 
-                return _this2.editorService.getTool().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (tool) {
-                  return _this2.toolService.createTool(tool);
-                })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (tool) {
-                  if (_this2.tool) {
-                    _this2.tool.disable();
+                  if (step.isDrawMirrored) {
+                    _this2.editorService.enableDrawMirrored();
+                  } else {
+                    _this2.editorService.disableDrawMirrored();
                   }
 
-                  _this2.tool = tool;
-                  _this2.tool.isEnabledTransform = false;
-                  tool.enable();
-                  step.points.forEach(function (point, index) {
-                    if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
-                      if (index === 0) {
-                        tool.drawStart(point);
-                      } else {
-                        tool.draw(point);
-                      }
-                    } else if (tool instanceof _tools_tap_base__WEBPACK_IMPORTED_MODULE_7__["EditorTapToolBase"]) {
-                      tool.tap(point);
+                  return _this2.editorService.getTool().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (tool) {
+                    return _this2.toolService.createTool(tool);
+                  })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (tool) {
+                    if (_this2.tool) {
+                      _this2.tool.disable();
                     }
-                  });
 
-                  if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
-                    tool.drawEnd();
-                  }
+                    _this2.tool = tool;
+                    tool.enable();
+                    step.points.forEach(function (point, index) {
+                      if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
+                        if (index === 0) {
+                          tool.drawStart(point);
+                        } else {
+                          tool.draw(point);
+                        }
+                      } else if (tool instanceof _tools_tap_base__WEBPACK_IMPORTED_MODULE_7__["EditorTapToolBase"]) {
+                        tool.tap(point);
+                      }
+                    });
 
-                  return tool;
+                    if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
+                      tool.drawEnd();
+                    }
+
+                    if (step.transformPoints) {
+                      var drawTool = tool;
+                      step.transformPoints.forEach(function () {
+                        var points = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+                        points.forEach(function (point, index) {
+                          if (index === 0) {
+                            drawTool.transformStart(point);
+                          } else {
+                            drawTool.transform(point);
+                          }
+                        });
+                        drawTool.transformEnd();
+                      });
+                    }
+
+                    if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
+                      tool.finishDraw();
+                    }
+
+                    return tool;
+                  }));
                 }));
               });
             }
           };
 
-          for (var key in this.initState) {
+          for (var key in steps) {
             _loop(key);
           }
 
@@ -2450,6 +2500,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _common_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../common/services */
     "./src/app/modules/common/services/index.ts");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var MandalaEditorComponent =
     /*#__PURE__*/
@@ -2471,9 +2527,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this5 = this;
 
           paper__WEBPACK_IMPORTED_MODULE_2__["settings"].handleSize = 10;
-          paper__WEBPACK_IMPORTED_MODULE_2__["settings"].hitTolerance = 10;
+          paper__WEBPACK_IMPORTED_MODULE_2__["settings"].hitTolerance = 3;
           this.isEnabledLoader$ = this.layoutService.isEnabledLoader();
-          this.layoutService.enableLoader();
+          this.isEnabledLoader$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["delay"])(0)).subscribe(function (isEnabledLoader) {
+            _this5.isEnabledLoader = isEnabledLoader;
+          });
           this.undoService.enable();
           this.editorService.getSize().pipe().subscribe(function (size) {
             if (!size) {
@@ -2506,7 +2564,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             height: window.innerHeight
           };
           this.idbService.getUserDrawState('current-state').then(function (state) {
-            _this6.initState = state.steps;
+            _this6.initState = state;
 
             if (state.size) {
               _this6.size = state.size;
@@ -2865,41 +2923,1168 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       TOOLS[TOOLS["PIPETTE"] = 5] = "PIPETTE";
     })(TOOLS || (TOOLS = {}));
 
-    var DRAW_IMAGES = ['/assets/circle.svg', '/assets/test.svg', '/assets/skull.svg'];
+    var DRAW_IMAGES = ['/assets/circle.svg', '/assets/test.svg', '/assets/skull.svg', '/assets/lego.svg'];
     /***/
   },
 
   /***/
-  "./src/app/modules/mandala/helpers/flood-fill.ts":
+  "./src/app/modules/mandala/helpers/magic-wand.js":
   /*!*******************************************************!*\
-    !*** ./src/app/modules/mandala/helpers/flood-fill.ts ***!
+    !*** ./src/app/modules/mandala/helpers/magic-wand.js ***!
     \*******************************************************/
 
-  /*! exports provided: floodFill */
+  /*! exports provided: default */
 
   /***/
-  function srcAppModulesMandalaHelpersFloodFillTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppModulesMandalaHelpersMagicWandJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
+    /*
+     Magic wand tool (fuzzy selection) by color
+    
+     @package magic-wand-tool
+     @author Ryasnoy Paul <ryasnoypaul@gmail.com>
+     @version 1.1.4
+     @license MIT
+     @copyright (c) 2014-2019, Ryasnoy Paul <ryasnoypaul@gmail.com>
+    
+    */
 
 
-    __webpack_require__.d(__webpack_exports__, "floodFill", function () {
-      return floodFill;
-    });
-    /* harmony import */
+    var lib = {};
+    /** Create a binary mask on the image by color threshold
+      * Algorithm: Scanline flood fill (http://en.wikipedia.org/wiki/Flood_fill)
+      * @param {Object} image: {Uint8Array} data, {int} width, {int} height, {int} bytes
+      * @param {int} x of start pixel
+      * @param {int} y of start pixel
+      * @param {int} color threshold
+      * @param {Uint8Array} mask of visited points (optional) 
+      * @param {boolean} [includeBorders=false] indicate whether to include borders pixels
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
 
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-
-    var floodFill = function floodFill(x, y) {
-      console.log('flood fill: ', x, y);
+    lib.floodFill = function (image, px, py, colorThreshold, mask, includeBorders) {
+      return includeBorders ? floodFillWithBorders(image, px, py, colorThreshold, mask) : floodFillWithoutBorders(image, px, py, colorThreshold, mask);
     };
-    /***/
 
+    function floodFillWithoutBorders(image, px, py, colorThreshold, mask) {
+      var c,
+          x,
+          newY,
+          el,
+          xr,
+          xl,
+          dy,
+          dyl,
+          dyr,
+          checkY,
+          data = image.data,
+          w = image.width,
+          h = image.height,
+          bytes = image.bytes,
+          // number of bytes in the color
+      maxX = -1,
+          minX = w + 1,
+          maxY = -1,
+          minY = h + 1,
+          i = py * w + px,
+          // start point index in the mask data
+      result = new Uint8Array(w * h),
+          // result mask
+      visited = new Uint8Array(mask ? mask : w * h); // mask of visited points
+
+      if (visited[i] === 1) return null;
+      i = i * bytes; // start point index in the image data
+
+      var sampleColor = [data[i], data[i + 1], data[i + 2], data[i + 3]]; // start point color (sample)
+
+      var stack = [{
+        y: py,
+        left: px - 1,
+        right: px + 1,
+        dir: 1
+      }]; // first scanning line
+
+      do {
+        el = stack.shift(); // get line for scanning
+
+        checkY = false;
+
+        for (x = el.left + 1; x < el.right; x++) {
+          dy = el.y * w;
+          i = (dy + x) * bytes; // point index in the image data
+
+          if (visited[dy + x] === 1) continue; // check whether the point has been visited
+          // compare the color of the sample
+
+          c = data[i] - sampleColor[0]; // check by red
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          c = data[i + 1] - sampleColor[1]; // check by green
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          c = data[i + 2] - sampleColor[2]; // check by blue
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          checkY = true; // if the color of the new point(x,y) is similar to the sample color need to check minmax for Y 
+
+          result[dy + x] = 1; // mark a new point in mask
+
+          visited[dy + x] = 1; // mark a new point as visited
+
+          xl = x - 1; // walk to left side starting with the left neighbor
+
+          while (xl > -1) {
+            dyl = dy + xl;
+            i = dyl * bytes; // point index in the image data
+
+            if (visited[dyl] === 1) break; // check whether the point has been visited
+            // compare the color of the sample
+
+            c = data[i] - sampleColor[0]; // check by red
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 1] - sampleColor[1]; // check by green
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 2] - sampleColor[2]; // check by blue
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            result[dyl] = 1;
+            visited[dyl] = 1;
+            xl--;
+          }
+
+          xr = x + 1; // walk to right side starting with the right neighbor
+
+          while (xr < w) {
+            dyr = dy + xr;
+            i = dyr * bytes; // index point in the image data
+
+            if (visited[dyr] === 1) break; // check whether the point has been visited
+            // compare the color of the sample
+
+            c = data[i] - sampleColor[0]; // check by red
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 1] - sampleColor[1]; // check by green
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 2] - sampleColor[2]; // check by blue
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            result[dyr] = 1;
+            visited[dyr] = 1;
+            xr++;
+          } // check minmax for X
+
+
+          if (xl < minX) minX = xl + 1;
+          if (xr > maxX) maxX = xr - 1;
+          newY = el.y - el.dir;
+
+          if (newY >= 0 && newY < h) {
+            // add two scanning lines in the opposite direction (y - dir) if necessary
+            if (xl < el.left) stack.push({
+              y: newY,
+              left: xl,
+              right: el.left,
+              dir: -el.dir
+            }); // from "new left" to "current left"
+
+            if (el.right < xr) stack.push({
+              y: newY,
+              left: el.right,
+              right: xr,
+              dir: -el.dir
+            }); // from "current right" to "new right"
+          }
+
+          newY = el.y + el.dir;
+
+          if (newY >= 0 && newY < h) {
+            // add the scanning line in the direction (y + dir) if necessary
+            if (xl < xr) stack.push({
+              y: newY,
+              left: xl,
+              right: xr,
+              dir: el.dir
+            }); // from "new left" to "new right"
+          }
+        } // check minmax for Y if necessary
+
+
+        if (checkY) {
+          if (el.y < minY) minY = el.y;
+          if (el.y > maxY) maxY = el.y;
+        }
+      } while (stack.length > 0);
+
+      return {
+        data: result,
+        width: image.width,
+        height: image.height,
+        bounds: {
+          minX: minX,
+          minY: minY,
+          maxX: maxX,
+          maxY: maxY
+        }
+      };
+    }
+
+    function floodFillWithBorders(image, px, py, colorThreshold, mask) {
+      var c,
+          x,
+          newY,
+          el,
+          xr,
+          xl,
+          dy,
+          dyl,
+          dyr,
+          checkY,
+          data = image.data,
+          w = image.width,
+          h = image.height,
+          bytes = image.bytes,
+          // number of bytes in the color
+      maxX = -1,
+          minX = w + 1,
+          maxY = -1,
+          minY = h + 1,
+          i = py * w + px,
+          // start point index in the mask data
+      result = new Uint8Array(w * h),
+          // result mask
+      visited = new Uint8Array(mask ? mask : w * h); // mask of visited points
+
+      if (visited[i] === 1) return null;
+      i = i * bytes; // start point index in the image data
+
+      var sampleColor = [data[i], data[i + 1], data[i + 2], data[i + 3]]; // start point color (sample)
+
+      var stack = [{
+        y: py,
+        left: px - 1,
+        right: px + 1,
+        dir: 1
+      }]; // first scanning line
+
+      do {
+        el = stack.shift(); // get line for scanning
+
+        checkY = false;
+
+        for (x = el.left + 1; x < el.right; x++) {
+          dy = el.y * w;
+          i = (dy + x) * bytes; // point index in the image data
+
+          if (visited[dy + x] === 1) continue; // check whether the point has been visited
+
+          checkY = true; // if the color of the new point(x,y) is similar to the sample color need to check minmax for Y 
+
+          result[dy + x] = 1; // mark a new point in mask
+
+          visited[dy + x] = 1; // mark a new point as visited
+          // compare the color of the sample
+
+          c = data[i] - sampleColor[0]; // check by red
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          c = data[i + 1] - sampleColor[1]; // check by green
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          c = data[i + 2] - sampleColor[2]; // check by blue
+
+          if (c > colorThreshold || c < -colorThreshold) continue;
+          xl = x - 1; // walk to left side starting with the left neighbor
+
+          while (xl > -1) {
+            dyl = dy + xl;
+            i = dyl * bytes; // point index in the image data
+
+            if (visited[dyl] === 1) break; // check whether the point has been visited
+
+            result[dyl] = 1;
+            visited[dyl] = 1;
+            xl--; // compare the color of the sample
+
+            c = data[i] - sampleColor[0]; // check by red
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 1] - sampleColor[1]; // check by green
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 2] - sampleColor[2]; // check by blue
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+          }
+
+          xr = x + 1; // walk to right side starting with the right neighbor
+
+          while (xr < w) {
+            dyr = dy + xr;
+            i = dyr * bytes; // index point in the image data
+
+            if (visited[dyr] === 1) break; // check whether the point has been visited
+
+            result[dyr] = 1;
+            visited[dyr] = 1;
+            xr++; // compare the color of the sample
+
+            c = data[i] - sampleColor[0]; // check by red
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 1] - sampleColor[1]; // check by green
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+            c = data[i + 2] - sampleColor[2]; // check by blue
+
+            if (c > colorThreshold || c < -colorThreshold) break;
+          } // check minmax for X
+
+
+          if (xl < minX) minX = xl + 1;
+          if (xr > maxX) maxX = xr - 1;
+          newY = el.y - el.dir;
+
+          if (newY >= 0 && newY < h) {
+            // add two scanning lines in the opposite direction (y - dir) if necessary
+            if (xl < el.left) stack.push({
+              y: newY,
+              left: xl,
+              right: el.left,
+              dir: -el.dir
+            }); // from "new left" to "current left"
+
+            if (el.right < xr) stack.push({
+              y: newY,
+              left: el.right,
+              right: xr,
+              dir: -el.dir
+            }); // from "current right" to "new right"
+          }
+
+          newY = el.y + el.dir;
+
+          if (newY >= 0 && newY < h) {
+            // add the scanning line in the direction (y + dir) if necessary
+            if (xl < xr) stack.push({
+              y: newY,
+              left: xl,
+              right: xr,
+              dir: el.dir
+            }); // from "new left" to "new right"
+          }
+        } // check minmax for Y if necessary
+
+
+        if (checkY) {
+          if (el.y < minY) minY = el.y;
+          if (el.y > maxY) maxY = el.y;
+        }
+      } while (stack.length > 0);
+
+      return {
+        data: result,
+        width: image.width,
+        height: image.height,
+        bounds: {
+          minX: minX,
+          minY: minY,
+          maxX: maxX,
+          maxY: maxY
+        }
+      };
+    }
+    /** Apply the gauss-blur filter to binary mask
+      * Algorithms: http://blog.ivank.net/fastest-gaussian-blur.html
+      * http://www.librow.com/articles/article-9
+      * http://elynxsdk.free.fr/ext-docs/Blur/Fast_box_blur.pdf
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
+
+
+    lib.gaussBlur = function (mask, radius) {
+      var i,
+          k,
+          k1,
+          x,
+          y,
+          val,
+          start,
+          end,
+          n = radius * 2 + 1,
+          // size of the pattern for radius-neighbors (from -r to +r with the center point)
+      s2 = radius * radius,
+          wg = new Float32Array(n),
+          // weights
+      total = 0,
+          // sum of weights(used for normalization)
+      w = mask.width,
+          h = mask.height,
+          data = mask.data,
+          minX = mask.bounds.minX,
+          maxX = mask.bounds.maxX,
+          minY = mask.bounds.minY,
+          maxY = mask.bounds.maxY; // calc gauss weights
+
+      for (i = 0; i < radius; i++) {
+        var dsq = (radius - i) * (radius - i);
+        var ww = Math.exp(-dsq / (2.0 * s2)) / (2 * Math.PI * s2);
+        wg[radius + i] = wg[radius - i] = ww;
+        total += 2 * ww;
+      } // normalization weights
+
+
+      for (i = 0; i < n; i++) {
+        wg[i] /= total;
+      }
+
+      var result = new Uint8Array(w * h),
+          // result mask
+      endX = radius + w,
+          endY = radius + h; //walk through all source points for blur
+
+      for (y = minY; y < maxY + 1; y++) {
+        for (x = minX; x < maxX + 1; x++) {
+          val = 0;
+          k = y * w + x; // index of the point
+
+          start = radius - x > 0 ? radius - x : 0;
+          end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+
+          k1 = k - radius; // walk through x-neighbors
+
+          for (i = start; i < end; i++) {
+            val += data[k1 + i] * wg[i];
+          }
+
+          start = radius - y > 0 ? radius - y : 0;
+          end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+
+          k1 = k - radius * w; // walk through y-neighbors
+
+          for (i = start; i < end; i++) {
+            val += data[k1 + i * w] * wg[i];
+          }
+
+          result[k] = val > 0.5 ? 1 : 0;
+        }
+      }
+
+      return {
+        data: result,
+        width: w,
+        height: h,
+        bounds: {
+          minX: minX,
+          minY: minY,
+          maxX: maxX,
+          maxY: maxY
+        }
+      };
+    };
+    /** Create a border index array of boundary points of the mask with radius-neighbors
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @param {Uint8Array} visited: mask of visited points (optional) 
+      * @return {Array} border index array of boundary points with radius-neighbors (only points need for blur)
+      */
+
+
+    function createBorderForBlur(mask, radius, visited) {
+      var x,
+          i,
+          j,
+          y,
+          k,
+          k1,
+          k2,
+          w = mask.width,
+          h = mask.height,
+          data = mask.data,
+          visitedData = new Uint8Array(data),
+          minX = mask.bounds.minX,
+          maxX = mask.bounds.maxX,
+          minY = mask.bounds.minY,
+          maxY = mask.bounds.maxY,
+          len = w * h,
+          temp = new Uint8Array(len),
+          // auxiliary array to check uniqueness
+      border = [],
+          // only border points
+      x0 = Math.max(minX, 1),
+          x1 = Math.min(maxX, w - 2),
+          y0 = Math.max(minY, 1),
+          y1 = Math.min(maxY, h - 2);
+
+      if (visited && visited.length > 0) {
+        // copy visited points (only "black")
+        for (k = 0; k < len; k++) {
+          if (visited[k] === 1) visitedData[k] = 1;
+        }
+      } // walk through inner values except points on the boundary of the image
+
+
+      for (y = y0; y < y1 + 1; y++) {
+        for (x = x0; x < x1 + 1; x++) {
+          k = y * w + x;
+          if (data[k] === 0) continue; // "white" point isn't the border
+
+          k1 = k + w; // y + 1
+
+          k2 = k - w; // y - 1
+          // check if any neighbor with a "white" color
+
+          if (visitedData[k + 1] === 0 || visitedData[k - 1] === 0 || visitedData[k1] === 0 || visitedData[k1 + 1] === 0 || visitedData[k1 - 1] === 0 || visitedData[k2] === 0 || visitedData[k2 + 1] === 0 || visitedData[k2 - 1] === 0) {
+            //if (visitedData[k + 1] + visitedData[k - 1] + 
+            //    visitedData[k1] + visitedData[k1 + 1] + visitedData[k1 - 1] +
+            //    visitedData[k2] + visitedData[k2 + 1] + visitedData[k2 - 1] == 8) continue;
+            border.push(k);
+          }
+        }
+      } // walk through points on the boundary of the image if necessary
+      // if the "black" point is adjacent to the boundary of the image, it is a border point
+
+
+      if (minX == 0) for (y = minY; y < maxY + 1; y++) {
+        if (data[y * w] === 1) border.push(y * w);
+      }
+      if (maxX == w - 1) for (y = minY; y < maxY + 1; y++) {
+        if (data[y * w + maxX] === 1) border.push(y * w + maxX);
+      }
+      if (minY == 0) for (x = minX; x < maxX + 1; x++) {
+        if (data[x] === 1) border.push(x);
+      }
+      if (maxY == h - 1) for (x = minX; x < maxX + 1; x++) {
+        if (data[maxY * w + x] === 1) border.push(maxY * w + x);
+      }
+      var result = [],
+          // border points with radius-neighbors
+      start,
+          end,
+          endX = radius + w,
+          endY = radius + h,
+          n = radius * 2 + 1; // size of the pattern for radius-neighbors (from -r to +r with the center point)
+
+      len = border.length; // walk through radius-neighbors of border points and add them to the result array
+
+      for (j = 0; j < len; j++) {
+        k = border[j]; // index of the border point
+
+        temp[k] = 1; // mark border point
+
+        result.push(k); // save the border point
+
+        x = k % w; // calc x by index
+
+        y = (k - x) / w; // calc y by index
+
+        start = radius - x > 0 ? radius - x : 0;
+        end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+
+        k1 = k - radius; // walk through x-neighbors
+
+        for (i = start; i < end; i++) {
+          k2 = k1 + i;
+
+          if (temp[k2] === 0) {
+            // check the uniqueness
+            temp[k2] = 1;
+            result.push(k2);
+          }
+        }
+
+        start = radius - y > 0 ? radius - y : 0;
+        end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+
+        k1 = k - radius * w; // walk through y-neighbors
+
+        for (i = start; i < end; i++) {
+          k2 = k1 + i * w;
+
+          if (temp[k2] === 0) {
+            // check the uniqueness
+            temp[k2] = 1;
+            result.push(k2);
+          }
+        }
+      }
+
+      return result;
+    }
+    /** Apply the gauss-blur filter ONLY to border points with radius-neighbors
+      * Algorithms: http://blog.ivank.net/fastest-gaussian-blur.html
+      * http://www.librow.com/articles/article-9
+      * http://elynxsdk.free.fr/ext-docs/Blur/Fast_box_blur.pdf
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @param {Uint8Array} visited: mask of visited points (optional) 
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
+
+
+    lib.gaussBlurOnlyBorder = function (mask, radius, visited) {
+      var border = createBorderForBlur(mask, radius, visited),
+          // get border points with radius-neighbors
+      ww,
+          dsq,
+          i,
+          j,
+          k,
+          k1,
+          x,
+          y,
+          val,
+          start,
+          end,
+          n = radius * 2 + 1,
+          // size of the pattern for radius-neighbors (from -r to +r with center point)
+      s2 = 2 * radius * radius,
+          wg = new Float32Array(n),
+          // weights
+      total = 0,
+          // sum of weights(used for normalization)
+      w = mask.width,
+          h = mask.height,
+          data = mask.data,
+          minX = mask.bounds.minX,
+          maxX = mask.bounds.maxX,
+          minY = mask.bounds.minY,
+          maxY = mask.bounds.maxY,
+          len = border.length; // calc gauss weights
+
+      for (i = 0; i < radius; i++) {
+        dsq = (radius - i) * (radius - i);
+        ww = Math.exp(-dsq / s2) / Math.PI;
+        wg[radius + i] = wg[radius - i] = ww;
+        total += 2 * ww;
+      } // normalization weights
+
+
+      for (i = 0; i < n; i++) {
+        wg[i] /= total;
+      }
+
+      var result = new Uint8Array(data),
+          // copy the source mask
+      endX = radius + w,
+          endY = radius + h; //walk through all border points for blur
+
+      for (i = 0; i < len; i++) {
+        k = border[i]; // index of the border point
+
+        val = 0;
+        x = k % w; // calc x by index
+
+        y = (k - x) / w; // calc y by index
+
+        start = radius - x > 0 ? radius - x : 0;
+        end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+
+        k1 = k - radius; // walk through x-neighbors
+
+        for (j = start; j < end; j++) {
+          val += data[k1 + j] * wg[j];
+        }
+
+        if (val > 0.5) {
+          result[k] = 1; // check minmax
+
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+          continue;
+        }
+
+        start = radius - y > 0 ? radius - y : 0;
+        end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+
+        k1 = k - radius * w; // walk through y-neighbors
+
+        for (j = start; j < end; j++) {
+          val += data[k1 + j * w] * wg[j];
+        }
+
+        if (val > 0.5) {
+          result[k] = 1; // check minmax
+
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        } else {
+          result[k] = 0;
+        }
+      }
+
+      return {
+        data: result,
+        width: w,
+        height: h,
+        bounds: {
+          minX: minX,
+          minY: minY,
+          maxX: maxX,
+          maxY: maxY
+        }
+      };
+    };
+    /** Create a border mask (only boundary points)
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Object} border mask: {Uint8Array} data, {int} width, {int} height, {Object} offset
+      */
+
+
+    lib.createBorderMask = function (mask) {
+      var x,
+          y,
+          k,
+          k1,
+          k2,
+          w = mask.width,
+          h = mask.height,
+          data = mask.data,
+          minX = mask.bounds.minX,
+          maxX = mask.bounds.maxX,
+          minY = mask.bounds.minY,
+          maxY = mask.bounds.maxY,
+          rw = maxX - minX + 1,
+          // bounds size
+      rh = maxY - minY + 1,
+          result = new Uint8Array(rw * rh),
+          // reduced mask (bounds size)
+      x0 = Math.max(minX, 1),
+          x1 = Math.min(maxX, w - 2),
+          y0 = Math.max(minY, 1),
+          y1 = Math.min(maxY, h - 2); // walk through inner values except points on the boundary of the image
+
+      for (y = y0; y < y1 + 1; y++) {
+        for (x = x0; x < x1 + 1; x++) {
+          k = y * w + x;
+          if (data[k] === 0) continue; // "white" point isn't the border
+
+          k1 = k + w; // y + 1
+
+          k2 = k - w; // y - 1
+          // check if any neighbor with a "white" color
+
+          if (data[k + 1] === 0 || data[k - 1] === 0 || data[k1] === 0 || data[k1 + 1] === 0 || data[k1 - 1] === 0 || data[k2] === 0 || data[k2 + 1] === 0 || data[k2 - 1] === 0) {
+            //if (data[k + 1] + data[k - 1] + 
+            //    data[k1] + data[k1 + 1] + data[k1 - 1] +
+            //    data[k2] + data[k2 + 1] + data[k2 - 1] == 8) continue;
+            result[(y - minY) * rw + (x - minX)] = 1;
+          }
+        }
+      } // walk through points on the boundary of the image if necessary
+      // if the "black" point is adjacent to the boundary of the image, it is a border point
+
+
+      if (minX == 0) for (y = minY; y < maxY + 1; y++) {
+        if (data[y * w] === 1) result[(y - minY) * rw] = 1;
+      }
+      if (maxX == w - 1) for (y = minY; y < maxY + 1; y++) {
+        if (data[y * w + maxX] === 1) result[(y - minY) * rw + (maxX - minX)] = 1;
+      }
+      if (minY == 0) for (x = minX; x < maxX + 1; x++) {
+        if (data[x] === 1) result[x - minX] = 1;
+      }
+      if (maxY == h - 1) for (x = minX; x < maxX + 1; x++) {
+        if (data[maxY * w + x] === 1) result[(maxY - minY) * rw + (x - minX)] = 1;
+      }
+      return {
+        data: result,
+        width: rw,
+        height: rh,
+        offset: {
+          x: minX,
+          y: minY
+        }
+      };
+    };
+    /** Create a border index array of boundary points of the mask
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height
+      * @return {Array} border index array boundary points of the mask
+      */
+
+
+    lib.getBorderIndices = function (mask) {
+      var x,
+          y,
+          k,
+          k1,
+          k2,
+          w = mask.width,
+          h = mask.height,
+          data = mask.data,
+          border = [],
+          // only border points
+      x1 = w - 1,
+          y1 = h - 1; // walk through inner values except points on the boundary of the image
+
+      for (y = 1; y < y1; y++) {
+        for (x = 1; x < x1; x++) {
+          k = y * w + x;
+          if (data[k] === 0) continue; // "white" point isn't the border
+
+          k1 = k + w; // y + 1
+
+          k2 = k - w; // y - 1
+          // check if any neighbor with a "white" color
+
+          if (data[k + 1] === 0 || data[k - 1] === 0 || data[k1] === 0 || data[k1 + 1] === 0 || data[k1 - 1] === 0 || data[k2] === 0 || data[k2 + 1] === 0 || data[k2 - 1] === 0) {
+            //if (data[k + 1] + data[k - 1] + 
+            //    data[k1] + data[k1 + 1] + data[k1 - 1] +
+            //    data[k2] + data[k2 + 1] + data[k2 - 1] == 8) continue;
+            border.push(k);
+          }
+        }
+      } // walk through points on the boundary of the image if necessary
+      // if the "black" point is adjacent to the boundary of the image, it is a border point
+
+
+      for (y = 0; y < h; y++) {
+        if (data[y * w] === 1) border.push(y * w);
+      }
+
+      for (x = 0; x < w; x++) {
+        if (data[x] === 1) border.push(x);
+      }
+
+      k = w - 1;
+
+      for (y = 0; y < h; y++) {
+        if (data[y * w + k] === 1) border.push(y * w + k);
+      }
+
+      k = (h - 1) * w;
+
+      for (x = 0; x < w; x++) {
+        if (data[k + x] === 1) border.push(k + x);
+      }
+
+      return border;
+    };
+    /** Create a compressed mask with a "white" border (1px border with zero values) for the contour tracing
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Object} border mask: {Uint8Array} data, {int} width, {int} height, {Object} offset
+      */
+
+
+    function prepareMask(mask) {
+      var x,
+          y,
+          w = mask.width,
+          data = mask.data,
+          minX = mask.bounds.minX,
+          maxX = mask.bounds.maxX,
+          minY = mask.bounds.minY,
+          maxY = mask.bounds.maxY,
+          rw = maxX - minX + 3,
+          // bounds size +1 px on each side (a "white" border)
+      rh = maxY - minY + 3,
+          result = new Uint8Array(rw * rh); // reduced mask (bounds size)
+      // walk through inner values and copy only "black" points to the result mask
+
+      for (y = minY; y < maxY + 1; y++) {
+        for (x = minX; x < maxX + 1; x++) {
+          if (data[y * w + x] === 1) result[(y - minY + 1) * rw + (x - minX + 1)] = 1;
+        }
+      }
+
+      return {
+        data: result,
+        width: rw,
+        height: rh,
+        offset: {
+          x: minX - 1,
+          y: minY - 1
+        }
+      };
+    }
+    /** Create a contour array for the binary mask
+      * Algorithm: http://www.sciencedirect.com/science/article/pii/S1077314203001401
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Array} contours: {Array} points, {bool} inner, {int} label
+      */
+
+
+    lib.traceContours = function (mask) {
+      var m = prepareMask(mask),
+          contours = [],
+          label = 0,
+          w = m.width,
+          w2 = w * 2,
+          h = m.height,
+          src = m.data,
+          dx = m.offset.x,
+          dy = m.offset.y,
+          dest = new Uint8Array(src),
+          // label matrix
+      i,
+          j,
+          x,
+          y,
+          k,
+          k1,
+          c,
+          inner,
+          dir,
+          first,
+          second,
+          current,
+          previous,
+          next,
+          d; // all [dx,dy] pairs (array index is the direction)
+      // 5 6 7
+      // 4 X 0
+      // 3 2 1
+
+      var directions = [[1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1], [1, -1]];
+
+      for (y = 1; y < h - 1; y++) {
+        for (x = 1; x < w - 1; x++) {
+          k = y * w + x;
+
+          if (src[k] === 1) {
+            for (i = -w; i < w2; i += w2) {
+              // k - w: outer tracing (y - 1), k + w: inner tracing (y + 1)
+              if (src[k + i] === 0 && dest[k + i] === 0) {
+                // need contour tracing
+                inner = i === w; // is inner contour tracing ?
+
+                label++; // label for the next contour
+
+                c = [];
+                dir = inner ? 2 : 6; // start direction
+
+                current = previous = first = {
+                  x: x,
+                  y: y
+                };
+                second = null;
+
+                while (true) {
+                  dest[current.y * w + current.x] = label; // mark label for the current point 
+                  // bypass all the neighbors around the current point in a clockwise
+
+                  for (j = 0; j < 8; j++) {
+                    dir = (dir + 1) % 8; // get the next point by new direction
+
+                    d = directions[dir]; // index as direction
+
+                    next = {
+                      x: current.x + d[0],
+                      y: current.y + d[1]
+                    };
+                    k1 = next.y * w + next.x;
+
+                    if (src[k1] === 1) // black boundary pixel
+                      {
+                        dest[k1] = label; // mark a label
+
+                        break;
+                      }
+
+                    dest[k1] = -1; // mark a white boundary pixel
+
+                    next = null;
+                  }
+
+                  if (next === null) break; // no neighbours (one-point contour)
+
+                  current = next;
+
+                  if (second) {
+                    if (previous.x === first.x && previous.y === first.y && current.x === second.x && current.y === second.y) {
+                      break; // creating the contour completed when returned to original position
+                    }
+                  } else {
+                    second = next;
+                  }
+
+                  c.push({
+                    x: previous.x + dx,
+                    y: previous.y + dy
+                  });
+                  previous = current;
+                  dir = (dir + 4) % 8; // next dir (symmetrically to the current direction)
+                }
+
+                if (next != null) {
+                  c.push({
+                    x: first.x + dx,
+                    y: first.y + dy
+                  }); // close the contour
+
+                  contours.push({
+                    inner: inner,
+                    label: label,
+                    points: c
+                  }); // add contour to the list
+                }
+              }
+            }
+          }
+        }
+      }
+
+      return contours;
+    };
+    /** Simplify contours
+      * Algorithms: http://psimpl.sourceforge.net/douglas-peucker.html 
+      * http://neerc.ifmo.ru/wiki/index.php?title=%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B8%D0%B3%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D1%86%D0%B5%D0%BF%D0%B8
+      * @param {Array} contours: {Array} points, {bool} inner, {int} label
+      * @param {float} simplify tolerant
+      * @param {int} simplify count: min number of points when the contour is simplified
+      * @return {Array} contours: {Array} points, {bool} inner, {int} label, {int} initialCount
+      */
+
+
+    lib.simplifyContours = function (contours, simplifyTolerant, simplifyCount) {
+      var lenContours = contours.length,
+          result = [],
+          i,
+          j,
+          k,
+          c,
+          points,
+          len,
+          resPoints,
+          lst,
+          stack,
+          ids,
+          maxd,
+          maxi,
+          dist,
+          r1,
+          r2,
+          r12,
+          dx,
+          dy,
+          pi,
+          pf,
+          pl; // walk through all contours 
+
+      for (j = 0; j < lenContours; j++) {
+        c = contours[j];
+        points = c.points;
+        len = c.points.length;
+
+        if (len < simplifyCount) {
+          // contour isn't simplified
+          resPoints = [];
+
+          for (k = 0; k < len; k++) {
+            resPoints.push({
+              x: points[k].x,
+              y: points[k].y
+            });
+          }
+
+          result.push({
+            inner: c.inner,
+            label: c.label,
+            points: resPoints,
+            initialCount: len
+          });
+          continue;
+        }
+
+        lst = [0, len - 1]; // always add first and last points
+
+        stack = [{
+          first: 0,
+          last: len - 1
+        }]; // first processed edge
+
+        do {
+          ids = stack.shift();
+
+          if (ids.last <= ids.first + 1) // no intermediate points
+            {
+              continue;
+            }
+
+          maxd = -1.0; // max distance from point to current edge
+
+          maxi = ids.first; // index of maximally distant point
+
+          for (i = ids.first + 1; i < ids.last; i++) // bypass intermediate points in edge
+          {
+            // calc the distance from current point to edge
+            pi = points[i];
+            pf = points[ids.first];
+            pl = points[ids.last];
+            dx = pi.x - pf.x;
+            dy = pi.y - pf.y;
+            r1 = Math.sqrt(dx * dx + dy * dy);
+            dx = pi.x - pl.x;
+            dy = pi.y - pl.y;
+            r2 = Math.sqrt(dx * dx + dy * dy);
+            dx = pf.x - pl.x;
+            dy = pf.y - pl.y;
+            r12 = Math.sqrt(dx * dx + dy * dy);
+            if (r1 >= Math.sqrt(r2 * r2 + r12 * r12)) dist = r2;else if (r2 >= Math.sqrt(r1 * r1 + r12 * r12)) dist = r1;else dist = Math.abs((dy * pi.x - dx * pi.y + pf.x * pl.y - pl.x * pf.y) / r12);
+
+            if (dist > maxd) {
+              maxi = i; // save the index of maximally distant point
+
+              maxd = dist;
+            }
+          }
+
+          if (maxd > simplifyTolerant) // if the max "deviation" is larger than allowed then...
+            {
+              lst.push(maxi); // add index to the simplified list
+
+              stack.push({
+                first: ids.first,
+                last: maxi
+              }); // add the left part for processing
+
+              stack.push({
+                first: maxi,
+                last: ids.last
+              }); // add the right part for processing
+            }
+        } while (stack.length > 0);
+
+        resPoints = [];
+        len = lst.length;
+        lst.sort(function (a, b) {
+          return a - b;
+        }); // restore index order
+
+        for (k = 0; k < len; k++) {
+          resPoints.push({
+            x: points[lst[k]].x,
+            y: points[lst[k]].y
+          }); // add result points to the correct order
+        }
+
+        result.push({
+          inner: c.inner,
+          label: c.label,
+          points: resPoints,
+          initialCount: c.points.length
+        });
+      }
+
+      return result;
+    };
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = lib; //# sourceMappingURL=magic-wand.js.map
+
+    /***/
   },
 
   /***/
@@ -3223,14 +4408,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function addPaperItems(drawStepKey, items, exportItems) {
           var group = new paper__WEBPACK_IMPORTED_MODULE_2__["Group"](items);
           var rasterize = group.rasterize();
-          rasterize.remove();
           group.remove();
+          rasterize.remove();
           this.cachedPaperGroups.set(drawStepKey, group);
           this.cachedPaperRasterizedGroups.set(group, rasterize);
           this.fillProject.activeLayer.addChild(rasterize);
           this.fillProject.view.update();
           this.drawProject.view.update();
           var exportGroup = new paper__WEBPACK_IMPORTED_MODULE_2__["Group"](exportItems);
+          exportGroup.remove();
           this.exportPaperGroups.set(drawStepKey, exportGroup);
         }
       }, {
@@ -3245,7 +4431,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           rasterize.remove();
           this.fillProject.view.update();
           this.drawProject.view.update();
-          console.log('this.fillProject: ', this.fillProject);
         }
       }, {
         key: "getExportPaperGroups",
@@ -3255,6 +4440,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addBackgroundRect",
         value: function addBackgroundRect(color) {
+          var _this8 = this;
+
           var startRect = this.createPoint(0, 0);
           var rectSize = new paper__WEBPACK_IMPORTED_MODULE_2__["Size"](this.size.width, this.size.height);
           var baseLayer = new paper__WEBPACK_IMPORTED_MODULE_2__["Layer"]();
@@ -3263,6 +4450,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.backgroundRect.fillColor = new paper__WEBPACK_IMPORTED_MODULE_2__["Color"](color);
           var drawLayer = new paper__WEBPACK_IMPORTED_MODULE_2__["Layer"]();
           drawLayer.activate();
+          setTimeout(function () {
+            return _this8.drawProject.view.update();
+          });
         }
       }, {
         key: "createPoint",
@@ -3558,8 +4748,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "saveUserDrawState",
         value: function saveUserDrawState(key, state) {
+          var saveState = Object.assign({}, state);
+          delete saveState["init"];
           return this.dbPromise.then(function (db) {
-            return db.put(IDB_USER_DRAW_KEY, state, key);
+            return db.put(IDB_USER_DRAW_KEY, saveState, key);
           });
         }
       }, {
@@ -3771,16 +4963,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ToolService, [{
         key: "createTool",
         value: function createTool(tool) {
-          var _this8 = this;
+          var _this9 = this;
 
           return rxjs__WEBPACK_IMPORTED_MODULE_7__["Observable"].create(function (observer) {
             switch (tool.type) {
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].DRAW_FREE:
-                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawFreeTool"](_this8.canvasService, _this8.editorService, _this8.undoService));
+                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawFreeTool"](_this9.canvasService, _this9.editorService, _this9.undoService));
                 break;
 
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].DRAW_LINE:
-                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawLineTool"](_this8.canvasService, _this8.editorService, _this8.undoService));
+                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawLineTool"](_this9.canvasService, _this9.editorService, _this9.undoService));
                 break;
 
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].DRAW_IMAGE:
@@ -3789,11 +4981,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpHeaders"]();
                 headers.set('Accept', 'image/svg+xml');
 
-                _this8.http.get(imagePath, {
+                _this9.http.get(imagePath, {
                   headers: headers,
                   responseType: responseType
                 }).subscribe(function (data) {
-                  var imageDrawTool = new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawImageTool"](_this8.canvasService, _this8.editorService, _this8.undoService);
+                  var imageDrawTool = new _tools__WEBPACK_IMPORTED_MODULE_4__["DrawImageTool"](_this9.canvasService, _this9.editorService, _this9.undoService);
                   imageDrawTool.setDrawImage(data, imagePath);
                   observer.next(imageDrawTool);
                   observer.complete();
@@ -3802,15 +4994,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return;
 
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].FILL_BACKGROUND:
-                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["FillBackgroundTool"](_this8.canvasService, _this8.editorService, _this8.undoService));
+                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["FillBackgroundTool"](_this9.canvasService, _this9.editorService, _this9.undoService));
                 break;
 
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].FILL_BUCKET:
-                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["FillBucketTool"](_this8.canvasService, _this8.editorService, _this8.undoService));
+                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["FillBucketTool"](_this9.canvasService, _this9.editorService, _this9.undoService));
                 break;
 
               case _enums_tools__WEBPACK_IMPORTED_MODULE_2__["TOOLS"].PIPETTE:
-                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["PipetteTool"](_this8.canvasService, _this8.editorService, _this8.undoService));
+                observer.next(new _tools__WEBPACK_IMPORTED_MODULE_4__["PipetteTool"](_this9.canvasService, _this9.editorService, _this9.undoService));
                 break;
             }
 
@@ -3997,7 +5189,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(UndoService, [{
         key: "enable",
         value: function enable() {
-          var _this9 = this;
+          var _this10 = this;
 
           if (this.isEnabled) {
             return;
@@ -4005,12 +5197,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           this.isEnabled = true;
           Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["fromEvent"])(window, 'keydown').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.destroy$)).subscribe(function (e) {
-            return _this9.onKeydown(e);
+            return _this10.onKeydown(e);
           });
           this.router.events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["filter"])(function (event) {
             return event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_4__["NavigationStart"];
           })).subscribe(function () {
-            return _this9.clear();
+            return _this10.clear();
           });
         }
       }, {
@@ -4047,6 +5239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var undoStackItem = _undo_stack_item__WEBPACK_IMPORTED_MODULE_2__["UndoStackItem"].createUndoStackItem(command);
 
           this.add(undoStackItem);
+          return undoStackItem;
         }
       }, {
         key: "undo",
@@ -4066,6 +5259,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (item) {
             item.redo();
             this.index += 1;
+          }
+        }
+      }, {
+        key: "remove",
+        value: function remove(item) {
+          var index = this.stack.indexOf(item);
+
+          if (index > -1) {
+            this.stack.splice(index, 1);
+
+            if (this.index >= index) {
+              this.index--;
+            }
           }
         }
       }, {
@@ -4283,7 +5489,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./src/app/modules/mandala/services/index.ts");
 
     var EditorEffects = function EditorEffects(actions$, editorService, idbService) {
-      var _this10 = this;
+      var _this11 = this;
 
       _classCallCheck(this, EditorEffects);
 
@@ -4291,9 +5497,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       this.editorService = editorService;
       this.idbService = idbService;
       this.drawState$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["createEffect"])(function () {
-        return _this10.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["color"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["disableDrawMirrored"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["enableDrawMirrored"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["strokeWidth"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["smoothType"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["tool"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["zonesCount"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["addUserdDrawStep"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["removeUserdDrawStep"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["clearUserdDrawSteps"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["updateCanvasSize"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function () {
-          return _this10.editorService.getDrawState().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(100), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (state) {
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(!state.init ? Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null) : _this10.idbService.saveUserDrawState('current-state', state)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e) {
+        return _this11.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_2__["ofType"])(_actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["color"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["disableDrawMirrored"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["enableDrawMirrored"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["strokeWidth"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["smoothType"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["tool"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["zonesCount"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["addUserdDrawStep"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["removeUserdDrawStep"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["clearUserdDrawSteps"], _actions_editor_actions__WEBPACK_IMPORTED_MODULE_5__["updateCanvasSize"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function () {
+          return _this11.editorService.getDrawState().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(100), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (state) {
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["from"])(!state.init ? Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null) : _this11.idbService.saveUserDrawState('current-state', state)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (e) {
               return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null);
             }));
           }));
@@ -4600,16 +5806,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(DrawFreeTool, _draw_base__WEBPACK_I);
 
       function DrawFreeTool(canvasService, editorService, undoService) {
-        var _this11;
+        var _this12;
 
         _classCallCheck(this, DrawFreeTool);
 
-        _this11 = _possibleConstructorReturn(this, _getPrototypeOf(DrawFreeTool).call(this, editorService));
-        _this11.canvasService = canvasService;
-        _this11.editorService = editorService;
-        _this11.undoService = undoService;
-        _this11.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_FREE;
-        return _this11;
+        _this12 = _possibleConstructorReturn(this, _getPrototypeOf(DrawFreeTool).call(this, editorService));
+        _this12.canvasService = canvasService;
+        _this12.editorService = editorService;
+        _this12.undoService = undoService;
+        _this12.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_FREE;
+        return _this12;
       }
 
       _createClass(DrawFreeTool, [{
@@ -4630,7 +5836,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "drawZoneEndIteration",
         value: function drawZoneEndIteration(_ref9) {
           var drawZonePath = _ref9.drawZonePath;
-          console.log('smoothType: ', this.smoothType);
 
           if (this.smoothType === _enums_smooth_types__WEBPACK_IMPORTED_MODULE_4__["SMOOTH_TYPES"].HARD_SMOOTH) {
             drawZonePath.simplify();
@@ -4639,7 +5844,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             drawZonePath.simplify();
           }
 
-          return drawZonePath;
+          return drawZonePath.clone({
+            insert: false
+          });
         }
       }, {
         key: "createPath",
@@ -4718,16 +5925,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(DrawImageTool, _draw_base__WEBPACK_I2);
 
       function DrawImageTool(canvasService, editorService, undoService) {
-        var _this12;
+        var _this13;
 
         _classCallCheck(this, DrawImageTool);
 
-        _this12 = _possibleConstructorReturn(this, _getPrototypeOf(DrawImageTool).call(this, editorService));
-        _this12.canvasService = canvasService;
-        _this12.editorService = editorService;
-        _this12.undoService = undoService;
-        _this12.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_IMAGE;
-        return _this12;
+        _this13 = _possibleConstructorReturn(this, _getPrototypeOf(DrawImageTool).call(this, editorService));
+        _this13.canvasService = canvasService;
+        _this13.editorService = editorService;
+        _this13.undoService = undoService;
+        _this13.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_IMAGE;
+        return _this13;
       }
 
       _createClass(DrawImageTool, [{
@@ -4775,11 +5982,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function createExportImage(image) {
           var exportImage = this.svgGroup.clone();
           exportImage.position = image.position;
-          exportImage.rotate(image.rotation);
-          exportImage.style.strokeWidth = null;
-          exportImage.style.strokeCap = null;
-          exportImage.style.strokeJoin = null;
-          exportImage.style.strokeScaling = false;
+          exportImage.rotate(image.rotation); // exportImage.style.strokeWidth = null;
+          // exportImage.style.strokeCap = null;
+          // exportImage.style.strokeJoin = null;
+          // exportImage.style.strokeScaling = false;
+
           exportImage.scale((image.scaling.x + image.scaling.y) * this.initScale);
           return exportImage;
         }
@@ -4866,16 +6073,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(DrawLineTool, _draw_base__WEBPACK_I3);
 
       function DrawLineTool(canvasService, editorService, undoService) {
-        var _this13;
+        var _this14;
 
         _classCallCheck(this, DrawLineTool);
 
-        _this13 = _possibleConstructorReturn(this, _getPrototypeOf(DrawLineTool).call(this, editorService));
-        _this13.canvasService = canvasService;
-        _this13.editorService = editorService;
-        _this13.undoService = undoService;
-        _this13.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_LINE;
-        return _this13;
+        _this14 = _possibleConstructorReturn(this, _getPrototypeOf(DrawLineTool).call(this, editorService));
+        _this14.canvasService = canvasService;
+        _this14.editorService = editorService;
+        _this14.undoService = undoService;
+        _this14.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].DRAW_LINE;
+        return _this14;
       }
 
       _createClass(DrawLineTool, [{
@@ -4901,7 +6108,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function drawZoneEndIteration(_ref15) {
           var drawZonePath = _ref15.drawZonePath;
           drawZonePath.simplify();
-          return drawZonePath;
+          return drawZonePath.clone({
+            insert: false
+          });
         }
       }, {
         key: "createLine",
@@ -4987,13 +6196,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var paper__WEBPACK_IMPORTED_MODULE_5___default =
     /*#__PURE__*/
     __webpack_require__.n(paper__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
 
-    var TRANSFORM_TYPES;
 
-    (function (TRANSFORM_TYPES) {
-      TRANSFORM_TYPES[TRANSFORM_TYPES["RESIZE"] = 0] = "RESIZE";
-      TRANSFORM_TYPES[TRANSFORM_TYPES["MOVE"] = 1] = "MOVE";
-    })(TRANSFORM_TYPES || (TRANSFORM_TYPES = {}));
+    var _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./helpers/transformer */
+    "./src/app/modules/mandala/tools/helpers/transformer.ts");
 
     var EditorDrawToolBase =
     /*#__PURE__*/
@@ -5001,25 +6209,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(EditorDrawToolBase, _tool_base__WEBPACK_I);
 
       function EditorDrawToolBase() {
-        var _this14;
+        var _this15;
 
         _classCallCheck(this, EditorDrawToolBase);
 
-        _this14 = _possibleConstructorReturn(this, _getPrototypeOf(EditorDrawToolBase).apply(this, arguments));
-        _this14.drawPaths = [];
-        _this14.hitPaths = [];
-        _this14.exportPaths = [];
-        _this14.drawPoints = [];
-        _this14.isEnabledTransform = true;
-        _this14.isMirrorTransform = false;
-        _this14.isLeftSizeTransform = false;
-        return _this14;
+        _this15 = _possibleConstructorReturn(this, _getPrototypeOf(EditorDrawToolBase).apply(this, arguments));
+        _this15.drawPaths = [];
+        _this15.hitPaths = [];
+        _this15.exportPaths = [];
+        _this15.drawPoints = [];
+        _this15.transformPoints = [];
+        _this15.currentTransformPoints = [];
+        _this15.transformUndoItems = [];
+        return _this15;
       }
 
       _createClass(EditorDrawToolBase, [{
         key: "addSubscriptions",
         value: function addSubscriptions(isTransformMode) {
-          var _this15 = this;
+          var _this16 = this;
 
           _get(_getPrototypeOf(EditorDrawToolBase.prototype), "addSubscriptions", this).call(this);
 
@@ -5032,22 +6240,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.hummerManager = new hammerjs__WEBPACK_IMPORTED_MODULE_4__["Manager"](this.canvasService.getDrawElement());
           this.hummerManager.add([pan, press]);
           this.hummerManager.on(isTransformMode ? 'press' : 'panstart', function (e) {
-            var point = _this15.canvasService.normalizePoint(e.center);
+            var point = _this16.canvasService.normalizePoint(e.center);
 
-            isTransformMode ? _this15.transformStart(point) : _this15.drawStart(point);
+            isTransformMode ? _this16.transformStart(point) : _this16.drawStart(point);
           });
+
+          if (isTransformMode) {
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["fromEvent"])(window, 'click').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.clear$)).subscribe(function (e) {
+              if (e.target !== _this16.canvasService.drawProject.view.element) {
+                _this16.switchFromTransformToDraw();
+              }
+            });
+          }
+
           var pan$ = rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].create(function (observer) {
-            _this15.hummerManager.on('pan', function (e) {
+            _this16.hummerManager.on('pan', function (e) {
               return observer.next(e);
             });
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["throttleTime"])(30));
           pan$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.clear$)).subscribe(function (e) {
-            var point = _this15.canvasService.normalizePoint(e.center);
+            var point = _this16.canvasService.normalizePoint(e.center);
 
-            isTransformMode ? _this15.transform(point) : _this15.draw(point);
+            isTransformMode ? _this16.transform(point) : _this16.draw(point);
           });
           this.hummerManager.on('panend', function () {
-            return isTransformMode ? _this15.transformEnd() : _this15.drawEnd();
+            return isTransformMode ? _this16.transformEnd() : _this16.drawEnd();
           });
         }
       }, {
@@ -5060,7 +6277,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "drawStart",
         value: function drawStart(_ref16) {
-          var _this16 = this;
+          var _this17 = this;
 
           var x = _ref16.x,
               y = _ref16.y;
@@ -5077,18 +6294,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               zoneIndex: zoneIndex,
               zoneAngle: zoneAngle,
               zoneStep: zoneStep,
-              drawPoint: _this16.drawStartPoint,
+              drawPoint: _this17.drawStartPoint,
               drawAngle: drawAngle
             };
 
-            var _this16$getDrawPoints = _this16.getDrawPoints(_this16.drawStartPoint, zoneStep, zoneAngle, drawAngle),
-                _this16$getDrawPoints2 = _slicedToArray(_this16$getDrawPoints, 2),
-                mainPoint = _this16$getDrawPoints2[0],
-                mirrorPoint = _this16$getDrawPoints2[1];
+            var _this17$getDrawPoints = _this17.getDrawPoints(_this17.drawStartPoint, zoneStep, zoneAngle, drawAngle),
+                _this17$getDrawPoints2 = _slicedToArray(_this17$getDrawPoints, 2),
+                mainPoint = _this17$getDrawPoints2[0],
+                mirrorPoint = _this17$getDrawPoints2[1];
 
-            _this16.drawPaths.push([_this16.drawZoneStartIteration(Object.assign({
+            _this17.drawPaths.push([_this17.drawZoneStartIteration(Object.assign({
               drawZonePoint: mainPoint
-            }, params)), _this16.isDrawMirrored ? _this16.drawZoneStartIteration(Object.assign({
+            }, params)), _this17.isDrawMirrored ? _this17.drawZoneStartIteration(Object.assign({
               drawZonePoint: mirrorPoint
             }, params)) : null]);
           });
@@ -5100,7 +6317,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "draw",
         value: function draw(_ref17) {
-          var _this17 = this;
+          var _this18 = this;
 
           var x = _ref17.x,
               y = _ref17.y;
@@ -5121,17 +6338,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 drawAngle: drawAngle
               };
 
-              var _this17$getDrawPoints = _this17.getDrawPoints(drawPoint, zoneStep, zoneAngle, drawAngle),
-                  _this17$getDrawPoints2 = _slicedToArray(_this17$getDrawPoints, 2),
-                  mainPoint = _this17$getDrawPoints2[0],
-                  mirrorPoint = _this17$getDrawPoints2[1];
+              var _this18$getDrawPoints = _this18.getDrawPoints(drawPoint, zoneStep, zoneAngle, drawAngle),
+                  _this18$getDrawPoints2 = _slicedToArray(_this18$getDrawPoints, 2),
+                  mainPoint = _this18$getDrawPoints2[0],
+                  mirrorPoint = _this18$getDrawPoints2[1];
 
-              var _this17$drawPaths$zon = _slicedToArray(_this17.drawPaths[zoneIndex], 2),
-                  zonePath = _this17$drawPaths$zon[0],
-                  mirrorPath = _this17$drawPaths$zon[1];
+              var _this18$drawPaths$zon = _slicedToArray(_this18.drawPaths[zoneIndex], 2),
+                  zonePath = _this18$drawPaths$zon[0],
+                  mirrorPath = _this18$drawPaths$zon[1];
 
               if (zonePath) {
-                zonePath = _this17.drawZoneIteration(Object.assign({
+                zonePath = _this18.drawZoneIteration(Object.assign({
                   isMirror: false,
                   drawZonePath: zonePath,
                   drawZonePoint: mainPoint
@@ -5139,14 +6356,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
 
               if (mirrorPath) {
-                mirrorPath = _this17.drawZoneIteration(Object.assign({
+                mirrorPath = _this18.drawZoneIteration(Object.assign({
                   isMirror: true,
                   drawZonePath: mirrorPath,
                   drawZonePoint: mirrorPoint
                 }, params));
               }
 
-              _this17.drawPaths[zoneIndex] = [zonePath, mirrorPath];
+              _this18.drawPaths[zoneIndex] = [zonePath, mirrorPath];
             });
             this.canvasService.drawProject.view.update();
           }
@@ -5154,115 +6371,135 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "drawEnd",
         value: function drawEnd() {
-          var _this18 = this;
+          var _this19 = this;
 
-          this.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
-            var params = {
-              zoneIndex: zoneIndex,
-              zoneAngle: zoneAngle,
-              zoneStep: zoneStep
-            };
+          var drawPaths = this.drawPaths;
 
-            var _this18$drawPaths$zon = _slicedToArray(_this18.drawPaths[zoneIndex], 2),
-                zonePath = _this18$drawPaths$zon[0],
-                mirrorPath = _this18$drawPaths$zon[1];
+          var addPaths = function addPaths() {
+            _this19.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
+              var params = {
+                zoneIndex: zoneIndex,
+                zoneAngle: zoneAngle,
+                zoneStep: zoneStep
+              };
 
-            var exportPaths = [null, null];
-            var hitPaths = [null, null];
+              var _drawPaths$zoneIndex = _slicedToArray(drawPaths[zoneIndex], 2),
+                  zonePath = _drawPaths$zoneIndex[0],
+                  mirrorPath = _drawPaths$zoneIndex[1];
 
-            if (zonePath) {
-              exportPaths[0] = _this18.drawZoneEndIteration(Object.assign({
-                drawZonePath: zonePath
-              }, params));
-              hitPaths[0] = _this18.createHitRect(zonePath);
+              var exportPaths = [null, null];
+              var hitPaths = [null, null];
+
+              if (zonePath) {
+                exportPaths[0] = _this19.drawZoneEndIteration(Object.assign({
+                  drawZonePath: zonePath
+                }, params));
+                hitPaths[0] = _this19.createHitRect(zonePath);
+              }
+
+              if (mirrorPath) {
+                exportPaths[1] = _this19.drawZoneEndIteration(Object.assign({
+                  drawZonePath: mirrorPath
+                }, params));
+                hitPaths[1] = _this19.createHitRect(mirrorPath);
+              }
+
+              _this19.exportPaths[zoneIndex] = exportPaths;
+              _this19.hitPaths[zoneIndex] = hitPaths;
+            });
+
+            _this19.redraw();
+
+            _this19.clearSubscriptions();
+
+            _this19.addSubscriptions(true);
+          };
+
+          addPaths();
+          var undoItem = this.undoService.addCommand({
+            undo: function undo() {
+              var removePath = function removePath(path) {
+                return path.remove();
+              };
+
+              _this19.pathsApply(_this19.drawPaths, removePath);
+
+              _this19.pathsApply(_this19.hitPaths, removePath);
+
+              _this19.redraw();
+
+              _this19.drawPaths = [];
+              _this19.exportPaths = [];
+              _this19.hitPaths = [];
+
+              _this19.clearSubscriptions();
+
+              _this19.addSubscriptions();
+            },
+            redo: function redo() {
+              _this19.drawPaths = drawPaths;
+
+              _this19.pathsApply(_this19.drawPaths, function (path) {
+                return paper__WEBPACK_IMPORTED_MODULE_5__["project"].activeLayer.addChild(path);
+              });
+
+              addPaths();
+
+              _this19.redraw();
             }
-
-            if (mirrorPath) {
-              exportPaths[1] = _this18.drawZoneEndIteration(Object.assign({
-                drawZonePath: mirrorPath
-              }, params));
-              hitPaths[1] = _this18.createHitRect(mirrorPath);
-            }
-
-            _this18.exportPaths[zoneIndex] = exportPaths;
-            _this18.hitPaths[zoneIndex] = hitPaths;
           });
-          this.canvasService.drawProject.view.update();
+          this.transformUndoItems.push(undoItem);
           this.isDrawing = false;
-
-          if (this.isEnabledTransform) {
-            this.clearSubscriptions();
-            this.addSubscriptions(true);
-          } else {
-            this.finishDraw();
-          }
         }
       }, {
         key: "transformStart",
         value: function transformStart(point) {
-          var _this19 = this;
+          var _this20 = this;
 
-          var isHited = false;
-          this.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
-            if (isHited) {
+          var tPoint = this.createPoint(point.x, point.y);
+          this.currentTransformPoints.push(point);
+          this.isTransforming = false;
+
+          var checkForHit = function checkForHit(path, isMirror) {
+            if (_this20.isTransforming) {
               return;
             }
 
-            var _this19$hitPaths$zone = _slicedToArray(_this19.hitPaths[zoneIndex], 2),
-                zonePath = _this19$hitPaths$zone[0],
-                mirrorPath = _this19$hitPaths$zone[1];
+            var hitResult = path.hitTest(tPoint);
 
-            if (zonePath) {
-              var hitResult = zonePath.hitTest(point);
+            if (hitResult || tPoint.isInside(path.bounds)) {
+              _this20.isTransforming = true;
 
-              if (hitResult) {
-                isHited = true;
-                _this19.isMirrorTransform = false;
-
-                _this19.hitedPath(point, zonePath, hitResult);
-              }
+              _this20.hitedPath(tPoint, path, hitResult, isMirror);
             }
+          };
 
-            if (mirrorPath) {
-              var _hitResult = mirrorPath.hitTest(point);
+          this.pathsApply(this.hitPaths, checkForHit, tPoint);
 
-              if (_hitResult) {
-                isHited = true;
-                _this19.isMirrorTransform = true;
-
-                _this19.hitedPath(point, mirrorPath, _hitResult);
-              }
-            }
-          });
-          var hitResults = paper__WEBPACK_IMPORTED_MODULE_5__["project"].hitTestAll(new paper__WEBPACK_IMPORTED_MODULE_5__["Point"](point));
-          console.log('hitResults: ', hitResults);
-          console.log('isHited: ', isHited);
-
-          if (!isHited) {
-            this.finishDraw();
-            this.clearSubscriptions();
-            this.addSubscriptions();
+          if (!this.isTransforming) {
+            this.switchFromTransformToDraw();
+          } else {
+            this.pathsApplyWithRedraw(this.hitPaths, function (path) {
+              path.selected = false;
+              path.opacity = 0;
+            });
           }
+        }
+      }, {
+        key: "switchFromTransformToDraw",
+        value: function switchFromTransformToDraw() {
+          this.finishDraw();
+          this.clearSubscriptions();
+          this.addSubscriptions();
         }
       }, {
         key: "finishDraw",
         value: function finishDraw() {
-          var _this20 = this;
+          var _this21 = this;
 
-          this.hitPaths.forEach(function (_ref18) {
-            var _ref19 = _slicedToArray(_ref18, 2),
-                zonePath = _ref19[0],
-                mirrorPath = _ref19[1];
-
-            if (zonePath) {
-              zonePath.remove();
-            }
-
-            if (mirrorPath) {
-              mirrorPath.remove();
-            }
+          this.pathsApplyWithRedraw(this.hitPaths, function (path) {
+            return path.remove();
           });
-          this.canvasService.drawProject.view.update();
           var drawStep = this.getState(this.drawPoints, this.toolParams);
           var drawStepKey = this.editorService.addUserDrawStep(drawStep);
           var allDrawPaths = this.getAllPaths(this.drawPaths);
@@ -5270,149 +6507,92 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.canvasService.addPaperItems(drawStepKey, allDrawPaths, allExportPaths);
           this.undoService.addCommand({
             undo: function undo() {
-              _this20.editorService.removeUserDrawStep(drawStepKey);
+              _this21.editorService.removeUserDrawStep(drawStepKey);
 
-              _this20.canvasService.removePaperItems(drawStepKey);
+              _this21.canvasService.removePaperItems(drawStepKey);
             },
             redo: function redo() {
-              _this20.editorService.addUserDrawStep(drawStep, drawStepKey);
+              _this21.editorService.addUserDrawStep(drawStep, drawStepKey);
 
-              _this20.canvasService.addPaperItems(drawStepKey, allDrawPaths, allExportPaths);
+              _this21.canvasService.addPaperItems(drawStepKey, allDrawPaths, allExportPaths);
             }
           });
+          this.transformUndoItems.forEach(function (undoItem) {
+            return _this21.undoService.remove(undoItem);
+          });
+          this.transformUndoItems = [];
           this.drawPaths = [];
           this.exportPaths = [];
           this.drawPoints = [];
+          this.transformPoints = [];
           this.hitPaths = [];
         }
       }, {
         key: "transform",
-        value: function transform(_ref20) {
-          var _this21 = this;
+        value: function transform(_ref18) {
+          var x = _ref18.x,
+              y = _ref18.y;
 
-          var x = _ref20.x,
-              y = _ref20.y;
-          var tPoint = this.createPoint(x, y); // tPoint.rotate()
-
-          var point = tPoint.subtract(this.transformOffsetPoint);
-
-          if (this.transfromType === TRANSFORM_TYPES.MOVE) {
-            var drawAngle = this.getDrawAngle(point);
-            console.log('drawAngle: ', drawAngle);
-            this.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
-              var _this21$getDrawPoints = _this21.getDrawPoints(point, zoneStep, zoneAngle, drawAngle),
-                  _this21$getDrawPoints2 = _slicedToArray(_this21$getDrawPoints, 2),
-                  mainPoint = _this21$getDrawPoints2[0],
-                  mirrorPoint = _this21$getDrawPoints2[1];
-
-              var _this21$hitPaths$zone = _slicedToArray(_this21.hitPaths[zoneIndex], 2),
-                  zoneHitPath = _this21$hitPaths$zone[0],
-                  mirrorHitPath = _this21$hitPaths$zone[1];
-
-              if (zoneHitPath) {
-                zoneHitPath.position = _this21.isMirrorTransform ? mirrorPoint : mainPoint;
-              }
-
-              if (mirrorHitPath) {
-                console.log(mirrorHitPath.position, mirrorPoint);
-                mirrorHitPath.position = _this21.isMirrorTransform ? mainPoint : mirrorPoint;
-              }
-
-              var _this21$drawPaths$zon = _slicedToArray(_this21.drawPaths[zoneIndex], 2),
-                  zonePath = _this21$drawPaths$zon[0],
-                  mirrorPath = _this21$drawPaths$zon[1];
-
-              if (zonePath) {
-                zonePath.position = _this21.isMirrorTransform ? mirrorPoint : mainPoint;
-              }
-
-              if (mirrorPath) {
-                mirrorPath.position = _this21.isMirrorTransform ? mainPoint : mirrorPoint;
-              }
-            });
-            this.canvasService.drawProject.view.update();
-          } else {
-            // const point = tPoint.subtract(this.transformOffsetPoint);
-            var vector = tPoint.subtract(this.transfromStartPoint);
-            console.log('vector: ', vector);
-            var distance = (vector.x < 0 ? -1 : 1) * tPoint.getDistance(this.transfromStartPoint, false);
-
-            var _drawAngle = this.getDrawAngle(tPoint);
-
-            var transformRotation = point.subtract(this.transformCenter).angle;
-            var transformWidth = this.isLeftSizeTransform ? this.transfromStartSize.width - distance : this.transfromStartSize.width + distance;
-            console.log('transformWidth: ', transformWidth);
-            var scale = transformWidth / this.transformWidth;
-            var rotation = transformRotation - this.transformRotation;
-            this.transformWidth = transformWidth;
-            this.transformRotation = rotation;
-            this.transformRotation++;
-            console.log(''); // console.log('width: ', width);
-            // console.log(' this.transfromStartSize.width: ',  this.transfromStartSize.width);
-            // console.log(' this.transformScale: ',  this.transformScale);
-
-            this.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
-              var _this21$getDrawPoints3 = _this21.getDrawPoints(point, zoneStep, zoneAngle, _drawAngle),
-                  _this21$getDrawPoints4 = _slicedToArray(_this21$getDrawPoints3, 2),
-                  mainPoint = _this21$getDrawPoints4[0],
-                  mirrorPoint = _this21$getDrawPoints4[1];
-
-              var _this21$hitPaths$zone2 = _slicedToArray(_this21.hitPaths[zoneIndex], 2),
-                  zoneHitPath = _this21$hitPaths$zone2[0],
-                  mirrorHitPath = _this21$hitPaths$zone2[1];
-
-              var _this21$drawPaths$zon2 = _slicedToArray(_this21.drawPaths[zoneIndex], 2),
-                  zonePath = _this21$drawPaths$zon2[0],
-                  mirrorPath = _this21$drawPaths$zon2[1];
-
-              if (zoneHitPath) {
-                console.log('zoneHitPath: ', zoneHitPath); // zoneHitPath.rotate(rotation, zoneHitPath.position);
-
-                zoneHitPath.scale(scale);
-              }
-
-              if (mirrorHitPath) {
-                mirrorHitPath.scale(scale);
-              }
-
-              if (zonePath) {
-                // zonePath.rotate(rotation, zoneHitPath.position);
-                zonePath.scale(scale);
-              }
-
-              if (mirrorPath) {
-                mirrorPath.scale(scale);
-              }
-            });
-            this.canvasService.drawProject.view.update();
-            console.log('distance: ', distance);
+          if (!this.isTransforming) {
+            return;
           }
+
+          this.currentTransformPoints.push({
+            x: x,
+            y: y
+          });
+          var tPoint = this.createPoint(x, y);
+
+          if (this.transformer.transfromType === _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["TRANSFORM_TYPES"].MOVE) {
+            var pathMove = function pathMove(path, isMirror, _ref19) {
+              var _ref20 = _slicedToArray(_ref19, 2),
+                  mainPoint = _ref20[0],
+                  mirrorPoint = _ref20[1];
+
+              path.position = isMirror ? mirrorPoint : mainPoint;
+            };
+
+            var point = this.transformer.updateTransformLastPoint(tPoint);
+            this.applyTransform(pathMove, point);
+          } else if (this.transformer.transfromType === _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["TRANSFORM_TYPES"].ROTATE) {
+            var rotation = this.transformer.updateTransformRotation(tPoint);
+            this.applyTransform(function (path) {
+              return path.rotate(rotation);
+            });
+          } else {
+            var prevWidth = this.transformer.transformWidth;
+            var transformWidth = this.transformer.updateTransformWidth(tPoint);
+            var scale = transformWidth / prevWidth;
+            this.applyTransform(function (path) {
+              return path.scale(scale);
+            });
+          }
+        }
+      }, {
+        key: "applyTransform",
+        value: function applyTransform(applyFunc, point) {
+          this.pathsApply(this.hitPaths, applyFunc, point);
+          this.pathsApply(this.drawPaths, applyFunc, point);
+          this.pathsApply(this.exportPaths, applyFunc, point);
+          this.redraw();
         }
       }, {
         key: "transformEnd",
         value: function transformEnd() {
-          console.log('transform end');
+          if (this.isTransforming) {
+            this.transformPoints.push(this.currentTransformPoints);
+            this.currentTransformPoints = [];
+            this.isTransforming = false;
+            this.pathsApplyWithRedraw(this.hitPaths, function (path) {
+              path.selected = true;
+              path.opacity = 1;
+            });
+          }
         }
       }, {
         key: "hitedPath",
-        value: function hitedPath(_ref21, path, hitResult) {
-          var x = _ref21.x,
-              y = _ref21.y;
-          console.log('hitResult.type: ', hitResult.type);
-
-          if (hitResult.type === 'segment') {
-            this.transfromType = TRANSFORM_TYPES.RESIZE;
-          } else {
-            this.transfromType = TRANSFORM_TYPES.MOVE;
-          }
-
-          this.transfromStartPoint = this.createPoint(x, y);
-          this.transfromStartSize = path.bounds.clone();
-          this.transformWidth = this.transfromStartSize.width;
-          this.transformRotation = path.rotation;
-          this.transformCenter = path.position;
-          this.transformOffsetPoint = this.transfromStartPoint.subtract(this.transformCenter);
-          this.isLeftSizeTransform = this.transformCenter.x > this.transfromStartPoint.x;
+        value: function hitedPath(point, path, hitResult, isMirrorTransform) {
+          this.transformer = new _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["Transformer"](point, path, hitResult, isMirrorTransform);
         }
       }, {
         key: "createHitRect",
@@ -5421,8 +6601,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var rect = new paper__WEBPACK_IMPORTED_MODULE_5__["Path"].Rectangle(path.position, size);
           rect.transform(path.matrix);
           rect.position = path.position;
-          rect.fillColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
-          rect.opacity = 0;
+          rect.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
+          rect.strokeWidth = 2;
           rect.selected = true;
           rect.selectedColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
           return rect;
@@ -5432,6 +6612,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function getCanvasCenterPoint() {
           var size = this.canvasService.getCanvasSize();
           return this.createPoint(size.width / 2, size.height / 2);
+        }
+      }, {
+        key: "pathsApplyWithRedraw",
+        value: function pathsApplyWithRedraw(zones, applyFunc, point) {
+          this.pathsApply(zones, applyFunc, point);
+          this.redraw();
+        }
+      }, {
+        key: "pathsApply",
+        value: function pathsApply(paths, applyFunc, point) {
+          var _this22 = this;
+
+          if (point) {
+            var angle = this.getDrawAngle(point);
+            this.zonesIteration(function (zoneIndex, zoneAngle, zoneStep) {
+              var points = _this22.getDrawPoints(point, zoneStep, zoneAngle, angle);
+
+              var _paths$zoneIndex = _slicedToArray(paths[zoneIndex], 2),
+                  zonePath = _paths$zoneIndex[0],
+                  mirrorPath = _paths$zoneIndex[1];
+
+              if (zonePath) {
+                applyFunc(zonePath, false, points);
+              }
+
+              if (mirrorPath) {
+                applyFunc(mirrorPath, true, points);
+              }
+            });
+          } else {
+            paths.forEach(function (_ref21) {
+              var _ref22 = _slicedToArray(_ref21, 2),
+                  zonePath = _ref22[0],
+                  mirrorPath = _ref22[1];
+
+              if (zonePath) {
+                applyFunc(zonePath, false);
+              }
+
+              if (mirrorPath) {
+                applyFunc(mirrorPath, true);
+              }
+            });
+          }
+        }
+      }, {
+        key: "redraw",
+        value: function redraw() {
+          this.canvasService.drawProject.view.update();
         }
       }, {
         key: "zonesIteration",
@@ -5478,6 +6707,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
             return list;
           }, []);
+        }
+      }, {
+        key: "getState",
+        value: function getState() {
+          var points = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+          var toolParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+          var state = _get(_getPrototypeOf(EditorDrawToolBase.prototype), "getState", this).call(this, points, toolParams);
+
+          var transformPoints = this.transformPoints;
+          return Object.assign({}, state, {
+            transformPoints: transformPoints
+          });
         }
       }]);
 
@@ -5543,22 +6785,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(FillBackgroundTool, _tap_base__WEBPACK_IM);
 
       function FillBackgroundTool(canvasService, editorService, undoService) {
-        var _this22;
+        var _this23;
 
         _classCallCheck(this, FillBackgroundTool);
 
-        _this22 = _possibleConstructorReturn(this, _getPrototypeOf(FillBackgroundTool).call(this, editorService));
-        _this22.canvasService = canvasService;
-        _this22.editorService = editorService;
-        _this22.undoService = undoService;
-        _this22.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].FILL_BACKGROUND;
-        return _this22;
+        _this23 = _possibleConstructorReturn(this, _getPrototypeOf(FillBackgroundTool).call(this, editorService));
+        _this23.canvasService = canvasService;
+        _this23.editorService = editorService;
+        _this23.undoService = undoService;
+        _this23.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].FILL_BACKGROUND;
+        return _this23;
       }
 
       _createClass(FillBackgroundTool, [{
         key: "tap",
         value: function tap(point) {
-          var _this23 = this;
+          var _this24 = this;
 
           var drawStep = this.getState([point]);
           var drawStepKey = this.editorService.addUserDrawStep(drawStep);
@@ -5567,14 +6809,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.updateBackgroundColor(currentColor);
           this.undoService.addCommand({
             undo: function undo() {
-              _this23.updateBackgroundColor(prevColor);
+              _this24.updateBackgroundColor(prevColor);
 
-              _this23.editorService.removeUserDrawStep(drawStepKey);
+              _this24.editorService.removeUserDrawStep(drawStepKey);
             },
             redo: function redo() {
-              _this23.updateBackgroundColor(currentColor);
+              _this24.updateBackgroundColor(currentColor);
 
-              _this23.editorService.addUserDrawStep(drawStep, drawStepKey);
+              _this24.editorService.addUserDrawStep(drawStep, drawStepKey);
             }
           });
         }
@@ -5626,13 +6868,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _helpers_flood_fill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./../helpers/flood-fill */
-    "./src/app/modules/mandala/helpers/flood-fill.ts");
+    var _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./../helpers/magic-wand.js */
+    "./src/app/modules/mandala/helpers/magic-wand.js");
     /* harmony import */
 
 
-    var _enums_tools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var paper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! paper */
+    "./node_modules/paper/dist/paper-full.js");
+    /* harmony import */
+
+
+    var paper__WEBPACK_IMPORTED_MODULE_3___default =
+    /*#__PURE__*/
+    __webpack_require__.n(paper__WEBPACK_IMPORTED_MODULE_3__);
+    /* harmony import */
+
+
+    var _enums_tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../enums/tools */
     "./src/app/modules/mandala/enums/tools.ts");
 
@@ -5642,30 +6896,268 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(FillBucketTool, _tap_base__WEBPACK_IM2);
 
       function FillBucketTool(canvasService, editorService, undoService) {
-        var _this24;
+        var _this25;
 
         _classCallCheck(this, FillBucketTool);
 
-        _this24 = _possibleConstructorReturn(this, _getPrototypeOf(FillBucketTool).call(this, editorService));
-        _this24.canvasService = canvasService;
-        _this24.editorService = editorService;
-        _this24.undoService = undoService;
-        _this24.rasters = [];
-        _this24.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].FILL_BUCKET;
-        return _this24;
+        _this25 = _possibleConstructorReturn(this, _getPrototypeOf(FillBucketTool).call(this, editorService));
+        _this25.canvasService = canvasService;
+        _this25.editorService = editorService;
+        _this25.undoService = undoService;
+        _this25.rasters = [];
+        _this25.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_4__["TOOLS"].FILL_BUCKET;
+        return _this25;
       }
 
       _createClass(FillBucketTool, [{
         key: "tap",
-        value: function tap(_ref22) {
-          var x = _ref22.x,
-              y = _ref22.y;
-          Object(_helpers_flood_fill__WEBPACK_IMPORTED_MODULE_2__["floodFill"])(x, y);
+        value: function tap(_ref23) {
+          var _this26 = this;
+
+          var x = _ref23.x,
+              y = _ref23.y;
+          var cvs = this.canvasService.fillProject.view.element;
+          var imageInfo = {
+            data: null,
+            width: cvs.width,
+            height: cvs.height,
+            context: cvs.getContext('2d')
+          };
+          var tempCanvas = document.createElement('canvas');
+          var tempCtx = tempCanvas.getContext('2d');
+          tempCtx.canvas.width = imageInfo.width;
+          tempCtx.canvas.height = imageInfo.height;
+          tempCtx.fillStyle = 'white';
+          tempCtx.fillRect(0, 0, imageInfo.width, imageInfo.height);
+          tempCtx.drawImage(cvs, 0, 0);
+          imageInfo.data = tempCtx.getImageData(0, 0, imageInfo.width, imageInfo.height);
+          var image = {
+            data: imageInfo.data.data,
+            width: imageInfo.width,
+            height: imageInfo.height,
+            bytes: 4
+          };
+
+          var mask = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].floodFill(image, x * 2, y * 2, 15);
+
+          mask = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].gaussBlurOnlyBorder(mask, 5);
+          var simplifyTolerant = 0;
+          var simplifyCount = 30;
+
+          var cs = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].traceContours(mask);
+
+          cs = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].simplifyContours(cs, simplifyTolerant, simplifyCount);
+          mask = null;
+          var group = new paper__WEBPACK_IMPORTED_MODULE_3__["Group"](); // outer
+
+          var _iteratorNormalCompletion = true;
+          var _didIteratorError = false;
+          var _iteratorError = undefined;
+
+          try {
+            for (var _iterator = cs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+              var csItem = _step.value;
+
+              if (csItem.inner) {
+                continue;
+              }
+
+              var myPath = new paper__WEBPACK_IMPORTED_MODULE_3__["Path"]();
+              myPath.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"](this.color);
+              myPath.fillColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"](this.color);
+              var ps = csItem.points;
+              myPath.position = new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps[0].x / 2, ps[0].y / 2);
+
+              for (var j = 1; j < ps.length; j++) {
+                myPath.add(new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps[j].x / 2, ps[j].y / 2));
+              }
+
+              myPath.closed = true; // inner
+
+              var _iteratorNormalCompletion2 = true;
+              var _didIteratorError2 = false;
+              var _iteratorError2 = undefined;
+
+              try {
+                for (var _iterator2 = cs[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                  var csItem2 = _step2.value;
+
+                  if (!csItem2.inner) {
+                    continue;
+                  }
+
+                  var myPath2 = new paper__WEBPACK_IMPORTED_MODULE_3__["Path"]();
+                  myPath2.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"]('red');
+                  myPath2.fillColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"]('green');
+                  var ps2 = csItem2.points;
+                  myPath2.position = new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps2[0].x / 2, ps2[0].y / 2);
+
+                  for (var _j = 1; _j < ps2.length; _j++) {
+                    myPath2.add(new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps2[_j].x / 2, ps2[_j].y / 2));
+                  }
+
+                  myPath2.closed = true;
+                  var newPath = myPath.exclude(myPath2);
+                  myPath.remove();
+                  myPath2.remove();
+                  myPath = newPath;
+                }
+              } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                    _iterator2.return();
+                  }
+                } finally {
+                  if (_didIteratorError2) {
+                    throw _iteratorError2;
+                  }
+                }
+              }
+
+              myPath.remove();
+              group.addChild(myPath);
+            }
+          } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion && _iterator.return != null) {
+                _iterator.return();
+              }
+            } finally {
+              if (_didIteratorError) {
+                throw _iteratorError;
+              }
+            }
+          }
+
+          var drawStep = this.getState([{
+            x: x,
+            y: y
+          }]);
+          var drawStepKey = this.editorService.addUserDrawStep(drawStep);
+          this.canvasService.addPaperItems(drawStepKey, [group], [group]);
+          this.undoService.addCommand({
+            undo: function undo() {
+              _this26.editorService.removeUserDrawStep(drawStepKey);
+
+              _this26.canvasService.removePaperItems(drawStepKey);
+            },
+            redo: function redo() {
+              _this26.editorService.addUserDrawStep(drawStep, drawStepKey);
+
+              _this26.canvasService.addPaperItems(drawStepKey, [group], [group]);
+            }
+          });
         }
       }]);
 
       return FillBucketTool;
     }(_tap_base__WEBPACK_IMPORTED_MODULE_1__["EditorTapToolBase"]);
+    /***/
+
+  },
+
+  /***/
+  "./src/app/modules/mandala/tools/helpers/transformer.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/modules/mandala/tools/helpers/transformer.ts ***!
+    \**************************************************************/
+
+  /*! exports provided: TRANSFORM_TYPES, Transformer */
+
+  /***/
+  function srcAppModulesMandalaToolsHelpersTransformerTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "TRANSFORM_TYPES", function () {
+      return TRANSFORM_TYPES;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "Transformer", function () {
+      return Transformer;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+
+    var TRANSFORM_TYPES;
+
+    (function (TRANSFORM_TYPES) {
+      TRANSFORM_TYPES[TRANSFORM_TYPES["RESIZE"] = 0] = "RESIZE";
+      TRANSFORM_TYPES[TRANSFORM_TYPES["MOVE"] = 1] = "MOVE";
+      TRANSFORM_TYPES[TRANSFORM_TYPES["ROTATE"] = 2] = "ROTATE";
+    })(TRANSFORM_TYPES || (TRANSFORM_TYPES = {}));
+
+    var Transformer =
+    /*#__PURE__*/
+    function () {
+      function Transformer(transfromStartPoint, path, hitResult, isMirrorTransform) {
+        _classCallCheck(this, Transformer);
+
+        this.transfromStartPoint = transfromStartPoint;
+        this.path = path;
+        this.hitResult = hitResult;
+        this.isMirrorTransform = isMirrorTransform;
+        this.isLeftSizeTransform = false;
+
+        if (!hitResult) {
+          this.transfromType = TRANSFORM_TYPES.MOVE;
+        } else if (hitResult.type === 'segment') {
+          this.transfromType = TRANSFORM_TYPES.ROTATE;
+        } else {
+          this.transfromType = TRANSFORM_TYPES.RESIZE;
+        }
+
+        this.transfromStartSize = this.path.bounds.clone();
+        this.transformWidth = this.transfromStartSize.width;
+        this.transformCenter = path.position;
+        this.transformRotation = this.transfromStartPoint.subtract(this.transformCenter).angle;
+        this.transformOffsetPoint = this.transfromStartPoint.subtract(this.transformCenter);
+        this.isLeftSizeTransform = this.transformCenter.x > this.transfromStartPoint.x;
+      }
+
+      _createClass(Transformer, [{
+        key: "updateTransformLastPoint",
+        value: function updateTransformLastPoint(tPoint) {
+          var point = tPoint.subtract(this.transformOffsetPoint);
+          this.transformLastPoint = point;
+          return point;
+        }
+      }, {
+        key: "updateTransformRotation",
+        value: function updateTransformRotation(tPoint) {
+          var v1 = tPoint.subtract(this.transformCenter);
+          var rotation = v1.angle - this.transformRotation;
+          this.transformRotation += rotation;
+          return rotation;
+        }
+      }, {
+        key: "updateTransformWidth",
+        value: function updateTransformWidth(tPoint) {
+          var vector = tPoint.subtract(this.transfromStartPoint);
+          var distance = (vector.x < 0 ? -1 : 1) * tPoint.getDistance(this.transfromStartPoint, false);
+          var transformWidth = this.isLeftSizeTransform ? this.transfromStartSize.width - distance : this.transfromStartSize.width + distance;
+          this.transformWidth = transformWidth;
+          return transformWidth;
+        }
+      }]);
+
+      return Transformer;
+    }();
     /***/
 
   },
@@ -5803,22 +7295,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _inherits(PipetteTool, _tap_base__WEBPACK_IM3);
 
       function PipetteTool(canvasService, editorService, undoService) {
-        var _this25;
+        var _this27;
 
         _classCallCheck(this, PipetteTool);
 
-        _this25 = _possibleConstructorReturn(this, _getPrototypeOf(PipetteTool).call(this, editorService));
-        _this25.canvasService = canvasService;
-        _this25.editorService = editorService;
-        _this25.undoService = undoService;
-        return _this25;
+        _this27 = _possibleConstructorReturn(this, _getPrototypeOf(PipetteTool).call(this, editorService));
+        _this27.canvasService = canvasService;
+        _this27.editorService = editorService;
+        _this27.undoService = undoService;
+        return _this27;
       }
 
       _createClass(PipetteTool, [{
         key: "tap",
-        value: function tap(_ref23) {
-          var x = _ref23.x,
-              y = _ref23.y;
+        value: function tap(_ref24) {
+          var x = _ref24.x,
+              y = _ref24.y;
           var context = this.canvasService.getFillElement().getContext('2d');
           var pixel = context.getImageData(x * 2, y * 2, 1, 1);
           var rgb = pixel.data;
@@ -5890,7 +7382,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(EditorTapToolBase, [{
         key: "addSubscriptions",
         value: function addSubscriptions() {
-          var _this26 = this;
+          var _this28 = this;
 
           _get(_getPrototypeOf(EditorTapToolBase.prototype), "addSubscriptions", this).call(this);
 
@@ -5898,9 +7390,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.hummerManager = new hammerjs__WEBPACK_IMPORTED_MODULE_2__["Manager"](this.canvasService.getDrawElement());
           this.hummerManager.add([tap]);
           this.hummerManager.on('tap', function (e) {
-            var point = _this26.canvasService.normalizePoint(e.center);
+            var point = _this28.canvasService.normalizePoint(e.center);
 
-            _this26.tap(point);
+            _this28.tap(point);
           });
         }
       }, {
@@ -5978,23 +7470,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addSubscriptions",
         value: function addSubscriptions() {
-          var _this27 = this;
+          var _this29 = this;
 
           this.clear$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
           this.editorService.getColor().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.clear$)).subscribe(function (color) {
-            return _this27.onChangeColor(color);
+            return _this29.onChangeColor(color);
           });
           this.editorService.getZonesCount().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.clear$)).subscribe(function (zonesCount) {
-            return _this27.zonesCount = zonesCount;
+            return _this29.zonesCount = zonesCount;
           });
           this.editorService.isDrawMirrored().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.clear$)).subscribe(function (isDrawMirrored) {
-            return _this27.isDrawMirrored = isDrawMirrored;
+            return _this29.isDrawMirrored = isDrawMirrored;
           });
           this.editorService.getStrokeWidth().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.clear$)).subscribe(function (strokeWidth) {
-            return _this27.strokeWidth = strokeWidth;
+            return _this29.strokeWidth = strokeWidth;
           });
           this.editorService.getSmoothType().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["takeUntil"])(this.clear$)).subscribe(function (smoothType) {
-            return _this27.smoothType = smoothType;
+            return _this29.smoothType = smoothType;
           });
         }
       }, {
@@ -6010,9 +7502,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var points = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
           var toolParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
           return {
-            tool: Object.assign({
-              type: this.tool
-            }, toolParams),
+            tool: {
+              type: this.tool,
+              params: Object.assign({}, toolParams)
+            },
             color: this.color,
             zonesCount: this.zonesCount,
             isDrawMirrored: this.isDrawMirrored,

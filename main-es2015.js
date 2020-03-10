@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div class=\"undo-controls\">\n        <button \n            matTooltip=\"Undo\"\n            [disabled]=\"!hasUndo\"\n            mat-mini-fab\n            (click)=\"undo()\">\n            <mat-icon>undo</mat-icon>\n        </button>\n        <button \n            matTooltip=\"Redo\"\n            [disabled]=\"!hasRedo\"\n            mat-mini-fab\n            (click)=\"redo()\">\n            <mat-icon>redo</mat-icon>\n        </button>\n    </div>\n    <div class=\"tools\">\n        <div class=\"tools__item tools__item--zones\">\n            <button \n                matTooltip=\"Decrease Zones\"\n                mat-icon-button\n                (click)=\"decreaseZones()\">\n                <mat-icon>remove</mat-icon>\n            </button>\n            <span>{{zonesCount}}</span>\n            <button \n                matTooltip=\"Increase Zones\"\n                mat-icon-button\n                (click)=\"increaseZones()\">\n                <mat-icon>add</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n                (click)=\"enableTool(TOOLS.DRAW_FREE)\">\n                <mat-icon>gesture</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Line\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.DRAW_LINE)\"\n                [class.active]=\"isCurrentTool(TOOLS.DRAW_LINE)\">\n                <mat-icon>show_chart</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw with image\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n                (click)=\"enableTool(TOOLS.DRAW_IMAGE)\">\n                <mat-icon>collections</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Background\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BACKGROUND)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BACKGROUND)\">\n                <mat-icon>opacity</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                disabled\n                matTooltip=\"Fill Bucket\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BUCKET)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BUCKET)\">\n                <mat-icon>filter_b_and_w</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Pipette\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.PIPETTE)\"\n                [class.active]=\"isCurrentTool(TOOLS.PIPETTE)\">\n                <mat-icon>colorize</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Clear All\"\n                mat-fab \n                (click)=\"clear()\">\n                <mat-icon> layers_clear</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button\n                matTooltip=\"to SVG\"\n                mat-fab \n                (click)=\"toSVG()\">\n                <mat-icon> cloud_download</mat-icon>\n            </button>\n        </div>\n    </div>\n    <div class=\"sub-tools\">\n        <div\n            *ngIf=\"!isCurrentTool(TOOLS.DRAW_IMAGE)\" \n            class=\"sub-tools__item sub-tools__item--color\">\n            <div class=\"color-preview\"\n                 matTooltip=\"Change Color\"\n                 [style.background-color]=\"color$ | async\"\n                 (click)=\"toggleColorpicker()\"></div>\n        </div>\n        <div \n            *ngIf=\"isDrawTool\"\n            class=\"sub-tools__item\">\n            <mat-checkbox \n                matTooltip=\"Mirror Draw\"\n                [(ngModel)]=\"isMirrorEnabled\">mirror</mat-checkbox>\n        </div>\n        <div *ngIf=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n             class=\"sub-tools__item sub-tools__item--smooth-type\">\n            <mat-select [(value)]=\"smoothType\">\n                <mat-option \n                    *ngFor=\"let smoothType of smoothTypes\" \n                    [value]=\"smoothType.type\">\n                  {{smoothType.name}}\n                </mat-option>\n              </mat-select>\n        </div>\n        <div \n            *ngIf=\"isDrawWithStrokeTool\"\n            class=\"sub-tools__item sub-tools__item--stroke-width\">\n            <mat-slider\n                [min]=\"1\"\n                [max]=\"30\"\n                [step]=\"1\"\n                [thumbLabel]=\"true\"\n                [vertical]=\"true\"\n                [(ngModel)]=\"strokeWidth\">\n            </mat-slider>\n        </div>\n        <div \n            *ngIf=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n            class=\"sub-tools__item sub-tools__item--images\">\n            <div \n                *ngFor=\"let image of drawImages\"\n                [class.active]=\"isCurrentImageDraw(image.url)\"\n                (click)=\"setDrawImage($event)\">\n                <object [attr.data]=\"image.safeUrl\" [attr.data-url]=\"image.url\" type=\"image/svg+xml\"></object>\n            </div>\n        </div>\n    </div>\n</div>\n<div\n    class=\"colorpicker\"\n    [class.visible]=\"isVisibleColorpicker\">\n    <button \n        (click)=\"toggleColorpicker()\"\n        class=\"colorpicker__close\"\n        mat-fab \n        color=\"accent\">\n        <mat-icon>clear</mat-icon>\n    </button>\n    <app-mandala-editor-colorpicker \n        [color]=\"color$ | async\"\n        (changeColor)=\"onChangeColor($event)\">\n    </app-mandala-editor-colorpicker>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div class=\"undo-controls\">\n        <button \n            matTooltip=\"Undo\"\n            [disabled]=\"!hasUndo\"\n            mat-mini-fab\n            (click)=\"undo()\">\n            <mat-icon>undo</mat-icon>\n        </button>\n        <button \n            matTooltip=\"Redo\"\n            [disabled]=\"!hasRedo\"\n            mat-mini-fab\n            (click)=\"redo()\">\n            <mat-icon>redo</mat-icon>\n        </button>\n    </div>\n    <div class=\"tools\">\n        <div class=\"tools__item tools__item--zones\">\n            <button \n                matTooltip=\"Decrease Zones\"\n                mat-icon-button\n                (click)=\"decreaseZones()\">\n                <mat-icon>remove</mat-icon>\n            </button>\n            <span>{{zonesCount}}</span>\n            <button \n                matTooltip=\"Increase Zones\"\n                mat-icon-button\n                (click)=\"increaseZones()\">\n                <mat-icon>add</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n                (click)=\"enableTool(TOOLS.DRAW_FREE)\">\n                <mat-icon>gesture</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Line\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.DRAW_LINE)\"\n                [class.active]=\"isCurrentTool(TOOLS.DRAW_LINE)\">\n                <mat-icon>show_chart</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Draw with image\"\n                mat-fab \n                [class.active]=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n                (click)=\"enableTool(TOOLS.DRAW_IMAGE)\">\n                <mat-icon>collections</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Background\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BACKGROUND)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BACKGROUND)\">\n                <mat-icon>opacity</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Fill Bucket\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.FILL_BUCKET)\"\n                [class.active]=\"isCurrentTool(TOOLS.FILL_BUCKET)\">\n                <mat-icon>filter_b_and_w</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Pipette\"\n                mat-fab \n                (click)=\"enableTool(TOOLS.PIPETTE)\"\n                [class.active]=\"isCurrentTool(TOOLS.PIPETTE)\">\n                <mat-icon>colorize</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button \n                matTooltip=\"Clear All\"\n                mat-fab \n                (click)=\"clear()\">\n                <mat-icon> layers_clear</mat-icon>\n            </button>\n        </div>\n        <div class=\"tools__item\">\n            <button\n                matTooltip=\"to SVG\"\n                mat-fab \n                (click)=\"toSVG()\">\n                <mat-icon> cloud_download</mat-icon>\n            </button>\n        </div>\n    </div>\n    <div class=\"sub-tools\">\n        <div\n            *ngIf=\"!isCurrentTool(TOOLS.DRAW_IMAGE)\" \n            class=\"sub-tools__item sub-tools__item--color\">\n            <div class=\"color-preview\"\n                 matTooltip=\"Change Color\"\n                 [style.background-color]=\"color$ | async\"\n                 (click)=\"toggleColorpicker()\"></div>\n        </div>\n        <div \n            *ngIf=\"isDrawTool\"\n            class=\"sub-tools__item\">\n            <mat-checkbox \n                matTooltip=\"Mirror Draw\"\n                [(ngModel)]=\"isMirrorEnabled\">mirror</mat-checkbox>\n        </div>\n        <div *ngIf=\"isCurrentTool(TOOLS.DRAW_FREE)\"\n             class=\"sub-tools__item sub-tools__item--smooth-type\">\n            <mat-select [(value)]=\"smoothType\">\n                <mat-option \n                    *ngFor=\"let smoothType of smoothTypes\" \n                    [value]=\"smoothType.type\">\n                  {{smoothType.name}}\n                </mat-option>\n              </mat-select>\n        </div>\n        <div \n            *ngIf=\"isDrawWithStrokeTool\"\n            class=\"sub-tools__item sub-tools__item--stroke-width\">\n            <mat-slider\n                [min]=\"1\"\n                [max]=\"30\"\n                [step]=\"1\"\n                [thumbLabel]=\"true\"\n                [vertical]=\"true\"\n                [(ngModel)]=\"strokeWidth\">\n            </mat-slider>\n        </div>\n        <div \n            *ngIf=\"isCurrentTool(TOOLS.DRAW_IMAGE)\"\n            class=\"sub-tools__item sub-tools__item--images\">\n            <div \n                *ngFor=\"let image of drawImages\"\n                [class.active]=\"isCurrentImageDraw(image.url)\"\n                (click)=\"setDrawImage($event)\">\n                <object [attr.data]=\"image.safeUrl\" [attr.data-url]=\"image.url\" type=\"image/svg+xml\"></object>\n            </div>\n        </div>\n    </div>\n</div>\n<div\n    class=\"colorpicker\"\n    [class.visible]=\"isVisibleColorpicker\">\n    <button \n        (click)=\"toggleColorpicker()\"\n        class=\"colorpicker__close\"\n        mat-fab \n        color=\"accent\">\n        <mat-icon>clear</mat-icon>\n    </button>\n    <app-mandala-editor-colorpicker \n        [color]=\"color$ | async\"\n        (changeColor)=\"onChangeColor($event)\">\n    </app-mandala-editor-colorpicker>\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"isLoaded\">\n    <app-mandala-editor-canvas [initState]=\"initState\"></app-mandala-editor-canvas>\n    <div \n        class=\"tools-container\"\n        [class.visible]=\"isVisibleTools\">\n        <app-mandala-editor-tools class=\"tools\"></app-mandala-editor-tools>\n        <div \n            class=\"toggle-tools\"\n            (click)=\"toggleTools()\">\n            <mat-icon>{{isVisibleTools ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon>\n        </div>\n    </div>\n</div>\n<div\n    *ngIf=\"isEnabledLoader$ | async as loading\"\n    class=\"loader\">\n    <mat-spinner></mat-spinner>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"isLoaded\">\n    <app-mandala-editor-canvas [initState]=\"initState\"></app-mandala-editor-canvas>\n    <div \n        class=\"tools-container\"\n        [class.visible]=\"isVisibleTools\">\n        <app-mandala-editor-tools class=\"tools\"></app-mandala-editor-tools>\n        <div \n            class=\"toggle-tools\"\n            (click)=\"toggleTools()\">\n            <mat-icon>{{isVisibleTools ? 'keyboard_arrow_left' : 'keyboard_arrow_right'}}</mat-icon>\n        </div>\n    </div>\n</div>\n<div\n    *ngIf=\"isEnabledLoader\"\n    class=\"loader\">\n    <mat-spinner></mat-spinner>\n</div>");
 
 /***/ }),
 
@@ -803,10 +803,25 @@ let MandalaEditorCanvasComponent = class MandalaEditorCanvasComponent {
         this.canvasService.setFillElement(this.fillCanvas.nativeElement);
         this.canvasService.setDrawElement(this.drawCanvas.nativeElement);
         this.canvasService.updateCanvasesSize(this.size);
+        this.layoutService.enableLoader();
         this.initDraw().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.destroy$))
             .subscribe(() => {
-            this.editorService.inited();
             this.undoService.clear();
+            if (this.initState && this.initState.tool) {
+                const { tool, color, strokeWidth, zonesCount, isDrawMirrored, smoothType } = this.initState;
+                this.editorService.setTool(tool);
+                this.editorService.setColor(color);
+                this.editorService.setStrokeWidth(strokeWidth);
+                this.editorService.setZonesCount(zonesCount);
+                this.editorService.setSmoothType(smoothType);
+                if (isDrawMirrored) {
+                    this.editorService.enableDrawMirrored();
+                }
+                else {
+                    this.editorService.disableDrawMirrored();
+                }
+            }
+            this.editorService.inited();
             this.editorService.getTool()
                 .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.destroy$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(tool => this.toolService.createTool(tool))).subscribe((tool) => {
                 if (this.tool) {
@@ -829,45 +844,66 @@ let MandalaEditorCanvasComponent = class MandalaEditorCanvasComponent {
     }
     initDraw() {
         const drawSteps = [];
-        for (const key in this.initState) {
-            if (this.initState.hasOwnProperty(key)) {
+        const steps = this.initState.steps || {};
+        for (const key in steps) {
+            if (steps.hasOwnProperty(key)) {
                 drawSteps.push(() => {
-                    const step = this.initState[key];
-                    this.editorService.setTool(step.tool);
-                    this.editorService.setColor(step.color);
-                    this.editorService.setStrokeWidth(step.strokeWidth);
-                    this.editorService.setZonesCount(step.zonesCount);
-                    if (step.isDrawMirrored) {
-                        this.editorService.enableDrawMirrored();
-                    }
-                    else {
-                        this.editorService.disableDrawMirrored();
-                    }
-                    return this.editorService.getTool()
-                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(tool => this.toolService.createTool(tool))).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((tool) => {
-                        if (this.tool) {
-                            this.tool.disable();
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(null)
+                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["delay"])(50), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(() => {
+                        const step = steps[key];
+                        this.editorService.setTool(step.tool);
+                        this.editorService.setColor(step.color);
+                        this.editorService.setStrokeWidth(step.strokeWidth);
+                        this.editorService.setZonesCount(step.zonesCount);
+                        this.editorService.setSmoothType(step.smoothType);
+                        if (step.isDrawMirrored) {
+                            this.editorService.enableDrawMirrored();
                         }
-                        this.tool = tool;
-                        this.tool.isEnabledTransform = false;
-                        tool.enable();
-                        step.points.forEach((point, index) => {
+                        else {
+                            this.editorService.disableDrawMirrored();
+                        }
+                        return this.editorService.getTool()
+                            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(tool => this.toolService.createTool(tool))).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((tool) => {
+                            if (this.tool) {
+                                this.tool.disable();
+                            }
+                            this.tool = tool;
+                            tool.enable();
+                            step.points.forEach((point, index) => {
+                                if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
+                                    if (index === 0) {
+                                        tool.drawStart(point);
+                                    }
+                                    else {
+                                        tool.draw(point);
+                                    }
+                                }
+                                else if (tool instanceof _tools_tap_base__WEBPACK_IMPORTED_MODULE_7__["EditorTapToolBase"]) {
+                                    tool.tap(point);
+                                }
+                            });
                             if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
-                                if (index === 0) {
-                                    tool.drawStart(point);
-                                }
-                                else {
-                                    tool.draw(point);
-                                }
+                                tool.drawEnd();
                             }
-                            else if (tool instanceof _tools_tap_base__WEBPACK_IMPORTED_MODULE_7__["EditorTapToolBase"]) {
-                                tool.tap(point);
+                            if (step.transformPoints) {
+                                const drawTool = tool;
+                                step.transformPoints.forEach((points = []) => {
+                                    points.forEach((point, index) => {
+                                        if (index === 0) {
+                                            drawTool.transformStart(point);
+                                        }
+                                        else {
+                                            drawTool.transform(point);
+                                        }
+                                    });
+                                    drawTool.transformEnd();
+                                });
                             }
-                        });
-                        if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
-                            tool.drawEnd();
-                        }
-                        return tool;
+                            if (tool instanceof _tools_draw_base__WEBPACK_IMPORTED_MODULE_6__["EditorDrawToolBase"]) {
+                                tool.finishDraw();
+                            }
+                            return tool;
+                        }));
                     }));
                 });
             }
@@ -1285,6 +1321,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var paper__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(paper__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services */ "./src/app/modules/mandala/services/index.ts");
 /* harmony import */ var _common_services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../common/services */ "./src/app/modules/common/services/index.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -1304,9 +1342,11 @@ let MandalaEditorComponent = class MandalaEditorComponent {
     }
     ngOnInit() {
         paper__WEBPACK_IMPORTED_MODULE_2__["settings"].handleSize = 10;
-        paper__WEBPACK_IMPORTED_MODULE_2__["settings"].hitTolerance = 10;
+        paper__WEBPACK_IMPORTED_MODULE_2__["settings"].hitTolerance = 3;
         this.isEnabledLoader$ = this.layoutService.isEnabledLoader();
-        this.layoutService.enableLoader();
+        this.isEnabledLoader$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["delay"])(0)).subscribe((isEnabledLoader) => {
+            this.isEnabledLoader = isEnabledLoader;
+        });
         this.undoService.enable();
         this.editorService.getSize().pipe().subscribe((size) => {
             if (!size) {
@@ -1330,7 +1370,7 @@ let MandalaEditorComponent = class MandalaEditorComponent {
         };
         this.idbService.getUserDrawState('current-state')
             .then((state) => {
-            this.initState = state.steps;
+            this.initState = state;
             if (state.size) {
                 this.size = state.size;
             }
@@ -1551,27 +1591,885 @@ var TOOLS;
 const DRAW_IMAGES = [
     '/assets/circle.svg',
     '/assets/test.svg',
-    '/assets/skull.svg'
+    '/assets/skull.svg',
+    '/assets/lego.svg'
 ];
 
 
 /***/ }),
 
-/***/ "./src/app/modules/mandala/helpers/flood-fill.ts":
+/***/ "./src/app/modules/mandala/helpers/magic-wand.js":
 /*!*******************************************************!*\
-  !*** ./src/app/modules/mandala/helpers/flood-fill.ts ***!
+  !*** ./src/app/modules/mandala/helpers/magic-wand.js ***!
   \*******************************************************/
-/*! exports provided: floodFill */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "floodFill", function() { return floodFill; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/*
+ Magic wand tool (fuzzy selection) by color
 
-const floodFill = (x, y) => {
-    console.log('flood fill: ', x, y);
-};
+ @package magic-wand-tool
+ @author Ryasnoy Paul <ryasnoypaul@gmail.com>
+ @version 1.1.4
+ @license MIT
+ @copyright (c) 2014-2019, Ryasnoy Paul <ryasnoypaul@gmail.com>
+
+*/
+
+    var lib = {};
+
+    /** Create a binary mask on the image by color threshold
+      * Algorithm: Scanline flood fill (http://en.wikipedia.org/wiki/Flood_fill)
+      * @param {Object} image: {Uint8Array} data, {int} width, {int} height, {int} bytes
+      * @param {int} x of start pixel
+      * @param {int} y of start pixel
+      * @param {int} color threshold
+      * @param {Uint8Array} mask of visited points (optional) 
+      * @param {boolean} [includeBorders=false] indicate whether to include borders pixels
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
+    lib.floodFill = function(image, px, py, colorThreshold, mask, includeBorders) {
+        return includeBorders
+            ? floodFillWithBorders(image, px, py, colorThreshold, mask)
+            : floodFillWithoutBorders(image, px, py, colorThreshold, mask);
+    };
+
+    function floodFillWithoutBorders(image, px, py, colorThreshold, mask) {
+
+        var c, x, newY, el, xr, xl, dy, dyl, dyr, checkY,
+            data = image.data,
+            w = image.width,
+            h = image.height,
+            bytes = image.bytes, // number of bytes in the color
+            maxX = -1, minX = w + 1, maxY = -1, minY = h + 1,
+            i = py * w + px, // start point index in the mask data
+            result = new Uint8Array(w * h), // result mask
+            visited = new Uint8Array(mask ? mask : w * h); // mask of visited points
+
+        if (visited[i] === 1) return null;
+
+        i = i * bytes; // start point index in the image data
+        var sampleColor = [data[i], data[i + 1], data[i + 2], data[i + 3]]; // start point color (sample)
+
+        var stack = [{ y: py, left: px - 1, right: px + 1, dir: 1 }]; // first scanning line
+        do {
+            el = stack.shift(); // get line for scanning
+
+            checkY = false;
+            for (x = el.left + 1; x < el.right; x++) {
+                dy = el.y * w;
+                i = (dy + x) * bytes; // point index in the image data
+
+                if (visited[dy + x] === 1) continue; // check whether the point has been visited
+                // compare the color of the sample
+                c = data[i] - sampleColor[0]; // check by red
+                if (c > colorThreshold || c < -colorThreshold) continue;
+                c = data[i + 1] - sampleColor[1]; // check by green
+                if (c > colorThreshold || c < -colorThreshold) continue;
+                c = data[i + 2] - sampleColor[2]; // check by blue
+                if (c > colorThreshold || c < -colorThreshold) continue;
+
+                checkY = true; // if the color of the new point(x,y) is similar to the sample color need to check minmax for Y 
+
+                result[dy + x] = 1; // mark a new point in mask
+                visited[dy + x] = 1; // mark a new point as visited
+
+                xl = x - 1;
+                // walk to left side starting with the left neighbor
+                while (xl > -1) {
+                    dyl = dy + xl;
+                    i = dyl * bytes; // point index in the image data
+                    if (visited[dyl] === 1) break; // check whether the point has been visited
+                    // compare the color of the sample
+                    c = data[i] - sampleColor[0]; // check by red
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 1] - sampleColor[1]; // check by green
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 2] - sampleColor[2]; // check by blue
+                    if (c > colorThreshold || c < -colorThreshold) break;
+
+                    result[dyl] = 1;
+                    visited[dyl] = 1;
+
+                    xl--;
+                }
+                xr = x + 1;
+                // walk to right side starting with the right neighbor
+                while (xr < w) {
+                    dyr = dy + xr;
+                    i = dyr * bytes; // index point in the image data
+                    if (visited[dyr] === 1) break; // check whether the point has been visited
+                    // compare the color of the sample
+                    c = data[i] - sampleColor[0]; // check by red
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 1] - sampleColor[1]; // check by green
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 2] - sampleColor[2]; // check by blue
+                    if (c > colorThreshold || c < -colorThreshold) break;
+
+                    result[dyr] = 1;
+                    visited[dyr] = 1;
+
+                    xr++;
+                }
+
+                // check minmax for X
+                if (xl < minX) minX = xl + 1;
+                if (xr > maxX) maxX = xr - 1;
+
+                newY = el.y - el.dir;
+                if (newY >= 0 && newY < h) { // add two scanning lines in the opposite direction (y - dir) if necessary
+                    if (xl < el.left) stack.push({ y: newY, left: xl, right: el.left, dir: -el.dir }); // from "new left" to "current left"
+                    if (el.right < xr) stack.push({ y: newY, left: el.right, right: xr, dir: -el.dir }); // from "current right" to "new right"
+                }
+                newY = el.y + el.dir;
+                if (newY >= 0 && newY < h) { // add the scanning line in the direction (y + dir) if necessary
+                    if (xl < xr) stack.push({ y: newY, left: xl, right: xr, dir: el.dir }); // from "new left" to "new right"
+                }
+            }
+            // check minmax for Y if necessary
+            if (checkY) {
+                if (el.y < minY) minY = el.y;
+                if (el.y > maxY) maxY = el.y;
+            }
+        } while (stack.length > 0);
+
+        return {
+            data: result,
+            width: image.width,
+            height: image.height,
+            bounds: {
+                minX: minX,
+                minY: minY,
+                maxX: maxX,
+                maxY: maxY
+            }
+        };
+    }
+    function floodFillWithBorders(image, px, py, colorThreshold, mask) {
+
+        var c, x, newY, el, xr, xl, dy, dyl, dyr, checkY,
+            data = image.data,
+            w = image.width,
+            h = image.height,
+            bytes = image.bytes, // number of bytes in the color
+            maxX = -1, minX = w + 1, maxY = -1, minY = h + 1,
+            i = py * w + px, // start point index in the mask data
+            result = new Uint8Array(w * h), // result mask
+            visited = new Uint8Array(mask ? mask : w * h); // mask of visited points
+
+        if (visited[i] === 1) return null;
+
+        i = i * bytes; // start point index in the image data
+        var sampleColor = [data[i], data[i + 1], data[i + 2], data[i + 3]]; // start point color (sample)
+
+        var stack = [{ y: py, left: px - 1, right: px + 1, dir: 1 }]; // first scanning line
+        do {
+            el = stack.shift(); // get line for scanning
+
+            checkY = false;
+            for (x = el.left + 1; x < el.right; x++) {
+                dy = el.y * w;
+                i = (dy + x) * bytes; // point index in the image data
+
+                if (visited[dy + x] === 1) continue; // check whether the point has been visited
+
+                checkY = true; // if the color of the new point(x,y) is similar to the sample color need to check minmax for Y 
+
+                result[dy + x] = 1; // mark a new point in mask
+                visited[dy + x] = 1; // mark a new point as visited
+
+                // compare the color of the sample
+                c = data[i] - sampleColor[0]; // check by red
+                if (c > colorThreshold || c < -colorThreshold) continue;
+                c = data[i + 1] - sampleColor[1]; // check by green
+                if (c > colorThreshold || c < -colorThreshold) continue;
+                c = data[i + 2] - sampleColor[2]; // check by blue
+                if (c > colorThreshold || c < -colorThreshold) continue;
+
+                xl = x - 1;
+                // walk to left side starting with the left neighbor
+                while (xl > -1) {
+                    dyl = dy + xl;
+                    i = dyl * bytes; // point index in the image data
+                    if (visited[dyl] === 1) break; // check whether the point has been visited
+
+                    result[dyl] = 1;
+                    visited[dyl] = 1;
+                    xl--;
+
+                    // compare the color of the sample
+                    c = data[i] - sampleColor[0]; // check by red
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 1] - sampleColor[1]; // check by green
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 2] - sampleColor[2]; // check by blue
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                }
+                xr = x + 1;
+                // walk to right side starting with the right neighbor
+                while (xr < w) {
+                    dyr = dy + xr;
+                    i = dyr * bytes; // index point in the image data
+                    if (visited[dyr] === 1) break; // check whether the point has been visited
+
+                    result[dyr] = 1;
+                    visited[dyr] = 1;
+                    xr++;
+
+                    // compare the color of the sample
+                    c = data[i] - sampleColor[0]; // check by red
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 1] - sampleColor[1]; // check by green
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                    c = data[i + 2] - sampleColor[2]; // check by blue
+                    if (c > colorThreshold || c < -colorThreshold) break;
+                }
+
+                // check minmax for X
+                if (xl < minX) minX = xl + 1;
+                if (xr > maxX) maxX = xr - 1;
+
+                newY = el.y - el.dir;
+                if (newY >= 0 && newY < h) { // add two scanning lines in the opposite direction (y - dir) if necessary
+                    if (xl < el.left) stack.push({ y: newY, left: xl, right: el.left, dir: -el.dir }); // from "new left" to "current left"
+                    if (el.right < xr) stack.push({ y: newY, left: el.right, right: xr, dir: -el.dir }); // from "current right" to "new right"
+                }
+                newY = el.y + el.dir;
+                if (newY >= 0 && newY < h) { // add the scanning line in the direction (y + dir) if necessary
+                    if (xl < xr) stack.push({ y: newY, left: xl, right: xr, dir: el.dir }); // from "new left" to "new right"
+                }
+            }
+            // check minmax for Y if necessary
+            if (checkY) {
+                if (el.y < minY) minY = el.y;
+                if (el.y > maxY) maxY = el.y;
+            }
+        } while (stack.length > 0);
+
+        return {
+            data: result,
+            width: image.width,
+            height: image.height,
+            bounds: {
+                minX: minX,
+                minY: minY,
+                maxX: maxX,
+                maxY: maxY
+            }
+        };
+    }
+    /** Apply the gauss-blur filter to binary mask
+      * Algorithms: http://blog.ivank.net/fastest-gaussian-blur.html
+      * http://www.librow.com/articles/article-9
+      * http://elynxsdk.free.fr/ext-docs/Blur/Fast_box_blur.pdf
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
+    lib.gaussBlur = function(mask, radius) {
+
+        var i, k, k1, x, y, val, start, end,
+            n = radius * 2 + 1, // size of the pattern for radius-neighbors (from -r to +r with the center point)
+            s2 = radius * radius,
+            wg = new Float32Array(n), // weights
+            total = 0, // sum of weights(used for normalization)
+            w = mask.width,
+            h = mask.height,
+            data = mask.data,
+            minX = mask.bounds.minX,
+            maxX = mask.bounds.maxX,
+            minY = mask.bounds.minY,
+            maxY = mask.bounds.maxY;
+
+        // calc gauss weights
+        for (i = 0; i < radius; i++) {
+            var dsq = (radius - i) * (radius - i);
+            var ww = Math.exp(-dsq / (2.0 * s2)) / (2 * Math.PI * s2);
+            wg[radius + i] = wg[radius - i] = ww;
+            total += 2 * ww;
+        }
+        // normalization weights
+        for (i = 0; i < n; i++) {
+            wg[i] /= total;
+        }
+
+        var result = new Uint8Array(w * h), // result mask
+            endX = radius + w,
+            endY = radius + h;
+
+        //walk through all source points for blur
+        for (y = minY; y < maxY + 1; y++)
+            for (x = minX; x < maxX + 1; x++) {
+                val = 0;
+                k = y * w + x; // index of the point
+                start = radius - x > 0 ? radius - x : 0;
+                end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+                k1 = k - radius;
+                // walk through x-neighbors
+                for (i = start; i < end; i++) {
+                    val += data[k1 + i] * wg[i];
+                }
+                start = radius - y > 0 ? radius - y : 0;
+                end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+                k1 = k - radius * w;
+                // walk through y-neighbors
+                for (i = start; i < end; i++) {
+                    val += data[k1 + i * w] * wg[i];
+                }
+                result[k] = val > 0.5 ? 1 : 0;
+            }
+
+        return {
+            data: result,
+            width: w,
+            height: h,
+            bounds: {
+                minX: minX,
+                minY: minY,
+                maxX: maxX,
+                maxY: maxY
+            }
+        };
+    };
+
+    /** Create a border index array of boundary points of the mask with radius-neighbors
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @param {Uint8Array} visited: mask of visited points (optional) 
+      * @return {Array} border index array of boundary points with radius-neighbors (only points need for blur)
+      */
+    function createBorderForBlur(mask, radius, visited) {
+
+        var x, i, j, y, k, k1, k2,
+            w = mask.width,
+            h = mask.height,
+            data = mask.data,
+            visitedData = new Uint8Array(data),
+            minX = mask.bounds.minX,
+            maxX = mask.bounds.maxX,
+            minY = mask.bounds.minY,
+            maxY = mask.bounds.maxY,
+            len = w * h,
+            temp = new Uint8Array(len), // auxiliary array to check uniqueness
+            border = [], // only border points
+            x0 = Math.max(minX, 1),
+            x1 = Math.min(maxX, w - 2),
+            y0 = Math.max(minY, 1),
+            y1 = Math.min(maxY, h - 2);
+
+        if (visited && visited.length > 0) {
+            // copy visited points (only "black")
+            for (k = 0; k < len; k++) {
+                if (visited[k] === 1) visitedData[k] = 1;
+            }
+        }
+
+        // walk through inner values except points on the boundary of the image
+        for (y = y0; y < y1 + 1; y++)
+            for (x = x0; x < x1 + 1; x++) {
+                k = y * w + x;
+                if (data[k] === 0) continue; // "white" point isn't the border
+                k1 = k + w; // y + 1
+                k2 = k - w; // y - 1
+                // check if any neighbor with a "white" color
+                if (visitedData[k + 1] === 0 || visitedData[k - 1] === 0 ||
+                    visitedData[k1] === 0 || visitedData[k1 + 1] === 0 || visitedData[k1 - 1] === 0 ||
+                    visitedData[k2] === 0 || visitedData[k2 + 1] === 0 || visitedData[k2 - 1] === 0) {
+                    //if (visitedData[k + 1] + visitedData[k - 1] + 
+                    //    visitedData[k1] + visitedData[k1 + 1] + visitedData[k1 - 1] +
+                    //    visitedData[k2] + visitedData[k2 + 1] + visitedData[k2 - 1] == 8) continue;
+                    border.push(k);
+                }
+            }
+
+        // walk through points on the boundary of the image if necessary
+        // if the "black" point is adjacent to the boundary of the image, it is a border point
+        if (minX == 0)
+            for (y = minY; y < maxY + 1; y++)
+                if (data[y * w] === 1)
+                    border.push(y * w);
+
+        if (maxX == w - 1)
+            for (y = minY; y < maxY + 1; y++)
+                if (data[y * w + maxX] === 1)
+                    border.push(y * w + maxX);
+
+        if (minY == 0)
+            for (x = minX; x < maxX + 1; x++)
+                if (data[x] === 1)
+                    border.push(x);
+
+        if (maxY == h - 1)
+            for (x = minX; x < maxX + 1; x++)
+                if (data[maxY * w + x] === 1)
+                    border.push(maxY * w + x);
+
+        var result = [], // border points with radius-neighbors
+            start, end,
+            endX = radius + w,
+            endY = radius + h,
+            n = radius * 2 + 1; // size of the pattern for radius-neighbors (from -r to +r with the center point)
+
+        len = border.length;
+        // walk through radius-neighbors of border points and add them to the result array
+        for (j = 0; j < len; j++) {
+            k = border[j]; // index of the border point
+            temp[k] = 1; // mark border point
+            result.push(k); // save the border point
+            x = k % w; // calc x by index
+            y = (k - x) / w; // calc y by index
+            start = radius - x > 0 ? radius - x : 0;
+            end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+            k1 = k - radius;
+            // walk through x-neighbors
+            for (i = start; i < end; i++) {
+                k2 = k1 + i;
+                if (temp[k2] === 0) { // check the uniqueness
+                    temp[k2] = 1;
+                    result.push(k2);
+                }
+            }
+            start = radius - y > 0 ? radius - y : 0;
+            end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+            k1 = k - radius * w;
+            // walk through y-neighbors
+            for (i = start; i < end; i++) {
+                k2 = k1 + i * w;
+                if (temp[k2] === 0) { // check the uniqueness
+                    temp[k2] = 1;
+                    result.push(k2);
+                }
+            }
+        }
+
+        return result;
+    }
+    /** Apply the gauss-blur filter ONLY to border points with radius-neighbors
+      * Algorithms: http://blog.ivank.net/fastest-gaussian-blur.html
+      * http://www.librow.com/articles/article-9
+      * http://elynxsdk.free.fr/ext-docs/Blur/Fast_box_blur.pdf
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @param {int} blur radius
+      * @param {Uint8Array} visited: mask of visited points (optional) 
+      * @return {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      */
+    lib.gaussBlurOnlyBorder = function(mask, radius, visited) {
+
+        var border = createBorderForBlur(mask, radius, visited), // get border points with radius-neighbors
+            ww, dsq, i, j, k, k1, x, y, val, start, end,
+            n = radius * 2 + 1, // size of the pattern for radius-neighbors (from -r to +r with center point)
+            s2 = 2 * radius * radius,
+            wg = new Float32Array(n), // weights
+            total = 0, // sum of weights(used for normalization)
+            w = mask.width,
+            h = mask.height,
+            data = mask.data,
+            minX = mask.bounds.minX,
+            maxX = mask.bounds.maxX,
+            minY = mask.bounds.minY,
+            maxY = mask.bounds.maxY,
+            len = border.length;
+
+        // calc gauss weights
+        for (i = 0; i < radius; i++) {
+            dsq = (radius - i) * (radius - i);
+            ww = Math.exp(-dsq / s2) / Math.PI;
+            wg[radius + i] = wg[radius - i] = ww;
+            total += 2 * ww;
+        }
+        // normalization weights
+        for (i = 0; i < n; i++) {
+            wg[i] /= total;
+        }
+
+        var result = new Uint8Array(data), // copy the source mask
+            endX = radius + w,
+            endY = radius + h;
+
+        //walk through all border points for blur
+        for (i = 0; i < len; i++) {
+            k = border[i]; // index of the border point
+            val = 0;
+            x = k % w; // calc x by index
+            y = (k - x) / w; // calc y by index
+            start = radius - x > 0 ? radius - x : 0;
+            end = endX - x < n ? endX - x : n; // Math.min((((w - 1) - x) + radius) + 1, n);
+            k1 = k - radius;
+            // walk through x-neighbors
+            for (j = start; j < end; j++) {
+                val += data[k1 + j] * wg[j];
+            }
+            if (val > 0.5) {
+                result[k] = 1;
+                // check minmax
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
+                continue;
+            }
+            start = radius - y > 0 ? radius - y : 0;
+            end = endY - y < n ? endY - y : n; // Math.min((((h - 1) - y) + radius) + 1, n);
+            k1 = k - radius * w;
+            // walk through y-neighbors
+            for (j = start; j < end; j++) {
+                val += data[k1 + j * w] * wg[j];
+            }
+            if (val > 0.5) {
+                result[k] = 1;
+                // check minmax
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
+            } else {
+                result[k] = 0;
+            }
+        }
+
+        return {
+            data: result,
+            width: w,
+            height: h,
+            bounds: {
+                minX: minX,
+                minY: minY,
+                maxX: maxX,
+                maxY: maxY
+            }
+        };
+    };
+
+    /** Create a border mask (only boundary points)
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Object} border mask: {Uint8Array} data, {int} width, {int} height, {Object} offset
+      */
+    lib.createBorderMask = function(mask) {
+
+        var x, y, k, k1, k2,
+            w = mask.width,
+            h = mask.height,
+            data = mask.data,
+            minX = mask.bounds.minX,
+            maxX = mask.bounds.maxX,
+            minY = mask.bounds.minY,
+            maxY = mask.bounds.maxY,
+            rw = maxX - minX + 1, // bounds size
+            rh = maxY - minY + 1,
+            result = new Uint8Array(rw * rh), // reduced mask (bounds size)
+            x0 = Math.max(minX, 1),
+            x1 = Math.min(maxX, w - 2),
+            y0 = Math.max(minY, 1),
+            y1 = Math.min(maxY, h - 2);
+
+        // walk through inner values except points on the boundary of the image
+        for (y = y0; y < y1 + 1; y++)
+            for (x = x0; x < x1 + 1; x++) {
+                k = y * w + x;
+                if (data[k] === 0) continue; // "white" point isn't the border
+                k1 = k + w; // y + 1
+                k2 = k - w; // y - 1
+                // check if any neighbor with a "white" color
+                if (data[k + 1] === 0 || data[k - 1] === 0 ||
+                    data[k1] === 0 || data[k1 + 1] === 0 || data[k1 - 1] === 0 ||
+                    data[k2] === 0 || data[k2 + 1] === 0 || data[k2 - 1] === 0) {
+                    //if (data[k + 1] + data[k - 1] + 
+                    //    data[k1] + data[k1 + 1] + data[k1 - 1] +
+                    //    data[k2] + data[k2 + 1] + data[k2 - 1] == 8) continue;
+                    result[(y - minY) * rw + (x - minX)] = 1;
+                }
+            }
+
+        // walk through points on the boundary of the image if necessary
+        // if the "black" point is adjacent to the boundary of the image, it is a border point
+        if (minX == 0)
+            for (y = minY; y < maxY + 1; y++)
+                if (data[y * w] === 1)
+                    result[(y - minY) * rw] = 1;
+
+        if (maxX == w - 1)
+            for (y = minY; y < maxY + 1; y++)
+                if (data[y * w + maxX] === 1)
+                    result[(y - minY) * rw + (maxX - minX)] = 1;
+
+        if (minY == 0)
+            for (x = minX; x < maxX + 1; x++)
+                if (data[x] === 1)
+                    result[x - minX] = 1;
+
+        if (maxY == h - 1)
+            for (x = minX; x < maxX + 1; x++)
+                if (data[maxY * w + x] === 1)
+                    result[(maxY - minY) * rw + (x - minX)] = 1;
+
+        return {
+            data: result,
+            width: rw,
+            height: rh,
+            offset: { x: minX, y: minY }
+        };
+    };
+    
+    /** Create a border index array of boundary points of the mask
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height
+      * @return {Array} border index array boundary points of the mask
+      */
+    lib.getBorderIndices = function(mask) {
+
+        var x, y, k, k1, k2,
+            w = mask.width,
+            h = mask.height,
+            data = mask.data,
+            border = [], // only border points
+            x1 = w - 1,
+            y1 = h - 1;
+
+        // walk through inner values except points on the boundary of the image
+        for (y = 1; y < y1; y++)
+            for (x = 1; x < x1; x++) {
+                k = y * w + x;
+                if (data[k] === 0) continue; // "white" point isn't the border
+                k1 = k + w; // y + 1
+                k2 = k - w; // y - 1
+                // check if any neighbor with a "white" color
+                if (data[k + 1] === 0 || data[k - 1] === 0 ||
+                    data[k1] === 0 || data[k1 + 1] === 0 || data[k1 - 1] === 0 ||
+                    data[k2] === 0 || data[k2 + 1] === 0 || data[k2 - 1] === 0) {
+                    //if (data[k + 1] + data[k - 1] + 
+                    //    data[k1] + data[k1 + 1] + data[k1 - 1] +
+                    //    data[k2] + data[k2 + 1] + data[k2 - 1] == 8) continue;
+                    border.push(k);
+                }
+            }
+
+        // walk through points on the boundary of the image if necessary
+        // if the "black" point is adjacent to the boundary of the image, it is a border point
+        for (y = 0; y < h; y++)
+            if (data[y * w] === 1)
+                border.push(y * w);
+
+        for (x = 0; x < w; x++)
+            if (data[x] === 1)
+                border.push(x);
+
+        k = w - 1;
+        for (y = 0; y < h; y++)
+            if (data[y * w + k] === 1)
+                border.push(y * w + k);
+
+        k = (h - 1) * w;
+        for (x = 0; x < w; x++)
+            if (data[k + x] === 1)
+                border.push(k + x);
+
+        return border;
+    };
+    
+    /** Create a compressed mask with a "white" border (1px border with zero values) for the contour tracing
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Object} border mask: {Uint8Array} data, {int} width, {int} height, {Object} offset
+      */
+    function prepareMask(mask) {
+        var x, y,
+            w = mask.width,
+            data = mask.data,
+            minX = mask.bounds.minX,
+            maxX = mask.bounds.maxX,
+            minY = mask.bounds.minY,
+            maxY = mask.bounds.maxY,
+            rw = maxX - minX + 3, // bounds size +1 px on each side (a "white" border)
+            rh = maxY - minY + 3,
+            result = new Uint8Array(rw * rh); // reduced mask (bounds size)
+
+        // walk through inner values and copy only "black" points to the result mask
+        for (y = minY; y < maxY + 1; y++)
+            for (x = minX; x < maxX + 1; x++) {
+                if (data[y * w + x] === 1)
+                    result[(y - minY + 1) * rw + (x - minX + 1)] = 1;
+            }
+
+        return {
+            data: result,
+            width: rw,
+            height: rh,
+            offset: { x: minX - 1, y: minY - 1 }
+        };
+    }        
+    /** Create a contour array for the binary mask
+      * Algorithm: http://www.sciencedirect.com/science/article/pii/S1077314203001401
+      * @param {Object} mask: {Uint8Array} data, {int} width, {int} height, {Object} bounds
+      * @return {Array} contours: {Array} points, {bool} inner, {int} label
+      */
+    lib.traceContours = function(mask) {
+        var m = prepareMask(mask),
+            contours = [],
+            label = 0,
+            w = m.width,
+            w2 = w * 2,
+            h = m.height,
+            src = m.data,
+            dx = m.offset.x,
+            dy = m.offset.y,
+            dest = new Uint8Array(src), // label matrix
+            i, j, x, y, k, k1, c, inner, dir, first, second, current, previous, next, d;
+
+        // all [dx,dy] pairs (array index is the direction)
+        // 5 6 7
+        // 4 X 0
+        // 3 2 1
+        var directions = [[1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1], [1, -1]];
+
+        for (y = 1; y < h - 1; y++)
+            for (x = 1; x < w - 1; x++) {
+                k = y * w + x;
+                if (src[k] === 1) {
+                    for (i = -w; i < w2; i += w2) { // k - w: outer tracing (y - 1), k + w: inner tracing (y + 1)
+                        if (src[k + i] === 0 && dest[k + i] === 0) { // need contour tracing
+                            inner = i === w; // is inner contour tracing ?
+                            label++; // label for the next contour
+
+                            c = [];
+                            dir = inner ? 2 : 6; // start direction
+                            current = previous = first = { x: x, y: y };
+                            second = null;
+                            while (true) {
+                                dest[current.y * w + current.x] = label; // mark label for the current point 
+                                // bypass all the neighbors around the current point in a clockwise
+                                for (j = 0; j < 8; j++) {
+                                    dir = (dir + 1) % 8;
+
+                                    // get the next point by new direction
+                                    d = directions[dir]; // index as direction
+                                    next = { x: current.x + d[0], y: current.y + d[1] };
+
+                                    k1 = next.y * w + next.x;
+                                    if (src[k1] === 1) // black boundary pixel
+                                    {
+                                        dest[k1] = label; // mark a label
+                                        break;
+                                    }
+                                    dest[k1] = -1; // mark a white boundary pixel
+                                    next = null;
+                                }
+                                if (next === null) break; // no neighbours (one-point contour)
+                                current = next;
+                                if (second) {
+                                    if (previous.x === first.x && previous.y === first.y && current.x === second.x && current.y === second.y) {
+                                        break; // creating the contour completed when returned to original position
+                                    }
+                                } else {
+                                    second = next;
+                                }
+                                c.push({ x: previous.x + dx, y: previous.y + dy });
+                                previous = current;
+                                dir = (dir + 4) % 8; // next dir (symmetrically to the current direction)
+                            }
+
+                            if (next != null) {
+                                c.push({ x: first.x + dx, y: first.y + dy }); // close the contour
+                                contours.push({ inner: inner, label: label, points: c }); // add contour to the list
+                            }
+                        }
+                    }
+                }
+            }
+
+        return contours;
+    };
+    
+    /** Simplify contours
+      * Algorithms: http://psimpl.sourceforge.net/douglas-peucker.html 
+      * http://neerc.ifmo.ru/wiki/index.php?title=%D0%A3%D0%BF%D1%80%D0%BE%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BF%D0%BE%D0%BB%D0%B8%D0%B3%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D1%86%D0%B5%D0%BF%D0%B8
+      * @param {Array} contours: {Array} points, {bool} inner, {int} label
+      * @param {float} simplify tolerant
+      * @param {int} simplify count: min number of points when the contour is simplified
+      * @return {Array} contours: {Array} points, {bool} inner, {int} label, {int} initialCount
+      */
+    lib.simplifyContours = function(contours, simplifyTolerant, simplifyCount) {
+        var lenContours = contours.length,
+            result = [],
+            i, j, k, c, points, len, resPoints, lst, stack, ids,
+            maxd, maxi, dist, r1, r2, r12, dx, dy, pi, pf, pl;
+
+        // walk through all contours 
+        for (j = 0; j < lenContours; j++) {
+            c = contours[j];
+            points = c.points;
+            len = c.points.length;
+
+            if (len < simplifyCount) { // contour isn't simplified
+                resPoints = [];
+                for (k = 0; k < len; k++) {
+                    resPoints.push({ x: points[k].x, y: points[k].y });
+                }
+                result.push({ inner: c.inner, label: c.label, points: resPoints, initialCount: len });
+                continue;
+            }
+
+            lst = [0, len - 1]; // always add first and last points
+            stack = [{ first: 0, last: len - 1 }]; // first processed edge
+
+            do {
+                ids = stack.shift();
+                if (ids.last <= ids.first + 1) // no intermediate points
+                {
+                    continue;
+                }
+
+                maxd = -1.0; // max distance from point to current edge
+                maxi = ids.first; // index of maximally distant point
+
+                for (i = ids.first + 1; i < ids.last; i++) // bypass intermediate points in edge
+                {
+                    // calc the distance from current point to edge
+                    pi = points[i];
+                    pf = points[ids.first];
+                    pl = points[ids.last];
+                    dx = pi.x - pf.x;
+                    dy = pi.y - pf.y;
+                    r1 = Math.sqrt(dx * dx + dy * dy);
+                    dx = pi.x - pl.x;
+                    dy = pi.y - pl.y;
+                    r2 = Math.sqrt(dx * dx + dy * dy);
+                    dx = pf.x - pl.x;
+                    dy = pf.y - pl.y;
+                    r12 = Math.sqrt(dx * dx + dy * dy);
+                    if (r1 >= Math.sqrt(r2 * r2 + r12 * r12)) dist = r2;
+                    else if (r2 >= Math.sqrt(r1 * r1 + r12 * r12)) dist = r1;
+                    else dist = Math.abs((dy * pi.x - dx * pi.y + pf.x * pl.y - pl.x * pf.y) / r12);
+
+                    if (dist > maxd) {
+                        maxi = i; // save the index of maximally distant point
+                        maxd = dist;
+                    }
+                }
+
+                if (maxd > simplifyTolerant) // if the max "deviation" is larger than allowed then...
+                {
+                    lst.push(maxi); // add index to the simplified list
+                    stack.push({ first: ids.first, last: maxi }); // add the left part for processing
+                    stack.push({ first: maxi, last: ids.last }); // add the right part for processing
+                }
+
+            } while (stack.length > 0);
+
+            resPoints = [];
+            len = lst.length;
+            lst.sort(function(a, b) { return a - b; }); // restore index order
+            for (k = 0; k < len; k++) {
+                resPoints.push({ x: points[lst[k]].x, y: points[lst[k]].y }); // add result points to the correct order
+            }
+            result.push({ inner: c.inner, label: c.label, points: resPoints, initialCount: c.points.length });
+        }
+
+        return result;
+    };
+
+    /* harmony default export */ __webpack_exports__["default"] = (lib);
+//# sourceMappingURL=magic-wand.js.map
 
 
 /***/ }),
@@ -1772,14 +2670,15 @@ let CanvasService = class CanvasService {
     addPaperItems(drawStepKey, items, exportItems) {
         const group = new paper__WEBPACK_IMPORTED_MODULE_2__["Group"](items);
         const rasterize = group.rasterize();
-        rasterize.remove();
         group.remove();
+        rasterize.remove();
         this.cachedPaperGroups.set(drawStepKey, group);
         this.cachedPaperRasterizedGroups.set(group, rasterize);
         this.fillProject.activeLayer.addChild(rasterize);
         this.fillProject.view.update();
         this.drawProject.view.update();
         const exportGroup = new paper__WEBPACK_IMPORTED_MODULE_2__["Group"](exportItems);
+        exportGroup.remove();
         this.exportPaperGroups.set(drawStepKey, exportGroup);
     }
     removePaperItems(drawStepKey) {
@@ -1792,7 +2691,6 @@ let CanvasService = class CanvasService {
         rasterize.remove();
         this.fillProject.view.update();
         this.drawProject.view.update();
-        console.log('this.fillProject: ', this.fillProject);
     }
     getExportPaperGroups() {
         return this.exportPaperGroups;
@@ -1806,6 +2704,7 @@ let CanvasService = class CanvasService {
         this.backgroundRect.fillColor = new paper__WEBPACK_IMPORTED_MODULE_2__["Color"](color);
         const drawLayer = new paper__WEBPACK_IMPORTED_MODULE_2__["Layer"]();
         drawLayer.activate();
+        setTimeout(() => this.drawProject.view.update());
     }
     createPoint(x, y) {
         return new paper__WEBPACK_IMPORTED_MODULE_2__["Point"](x, y);
@@ -1957,8 +2856,10 @@ let IdbService = class IdbService {
         });
     }
     saveUserDrawState(key, state) {
+        const saveState = Object.assign({}, state);
+        delete saveState[`init`];
         return this.dbPromise.then((db) => {
-            return db.put(IDB_USER_DRAW_KEY, state, key);
+            return db.put(IDB_USER_DRAW_KEY, saveState, key);
         });
     }
     getUserDrawState(key) {
@@ -2215,6 +3116,7 @@ let UndoService = class UndoService {
     addCommand(command) {
         const undoStackItem = _undo_stack_item__WEBPACK_IMPORTED_MODULE_2__["UndoStackItem"].createUndoStackItem(command);
         this.add(undoStackItem);
+        return undoStackItem;
     }
     undo() {
         const item = this.stack[this.index];
@@ -2228,6 +3130,15 @@ let UndoService = class UndoService {
         if (item) {
             item.redo();
             this.index += 1;
+        }
+    }
+    remove(item) {
+        const index = this.stack.indexOf(item);
+        if (index > -1) {
+            this.stack.splice(index, 1);
+            if (this.index >= index) {
+                this.index--;
+            }
         }
     }
     setLimit(limit) {
@@ -2475,7 +3386,6 @@ class DrawFreeTool extends _draw_base__WEBPACK_IMPORTED_MODULE_1__["EditorDrawTo
         return drawZonePath;
     }
     drawZoneEndIteration({ drawZonePath }) {
-        console.log('smoothType: ', this.smoothType);
         if (this.smoothType === _enums_smooth_types__WEBPACK_IMPORTED_MODULE_4__["SMOOTH_TYPES"].HARD_SMOOTH) {
             drawZonePath.simplify();
             drawZonePath.smooth();
@@ -2483,7 +3393,7 @@ class DrawFreeTool extends _draw_base__WEBPACK_IMPORTED_MODULE_1__["EditorDrawTo
         else if (this.smoothType === _enums_smooth_types__WEBPACK_IMPORTED_MODULE_4__["SMOOTH_TYPES"].LIGHT_SMOOTH) {
             drawZonePath.simplify();
         }
-        return drawZonePath;
+        return drawZonePath.clone({ insert: false });
     }
     createPath(position) {
         const path = new paper__WEBPACK_IMPORTED_MODULE_2__["Path"]();
@@ -2553,10 +3463,10 @@ class DrawImageTool extends _draw_base__WEBPACK_IMPORTED_MODULE_1__["EditorDrawT
         const exportImage = this.svgGroup.clone();
         exportImage.position = image.position;
         exportImage.rotate(image.rotation);
-        exportImage.style.strokeWidth = null;
-        exportImage.style.strokeCap = null;
-        exportImage.style.strokeJoin = null;
-        exportImage.style.strokeScaling = false;
+        // exportImage.style.strokeWidth = null;
+        // exportImage.style.strokeCap = null;
+        // exportImage.style.strokeJoin = null;
+        // exportImage.style.strokeScaling = false;
         exportImage.scale((image.scaling.x + image.scaling.y) * this.initScale);
         return exportImage;
     }
@@ -2616,7 +3526,7 @@ class DrawLineTool extends _draw_base__WEBPACK_IMPORTED_MODULE_1__["EditorDrawTo
     }
     drawZoneEndIteration({ drawZonePath }) {
         drawZonePath.simplify();
-        return drawZonePath;
+        return drawZonePath.clone({ insert: false });
     }
     createLine(position) {
         const line = new paper__WEBPACK_IMPORTED_MODULE_2__["Path"].Line(position, position);
@@ -2648,17 +3558,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var paper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! paper */ "./node_modules/paper/dist/paper-full.js");
 /* harmony import */ var paper__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(paper__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpers/transformer */ "./src/app/modules/mandala/tools/helpers/transformer.ts");
 
 
 
 
 
 
-var TRANSFORM_TYPES;
-(function (TRANSFORM_TYPES) {
-    TRANSFORM_TYPES[TRANSFORM_TYPES["RESIZE"] = 0] = "RESIZE";
-    TRANSFORM_TYPES[TRANSFORM_TYPES["MOVE"] = 1] = "MOVE";
-})(TRANSFORM_TYPES || (TRANSFORM_TYPES = {}));
+
 class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["EditorToolBase"] {
     constructor() {
         super(...arguments);
@@ -2666,9 +3573,9 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
         this.hitPaths = [];
         this.exportPaths = [];
         this.drawPoints = [];
-        this.isEnabledTransform = true;
-        this.isMirrorTransform = false;
-        this.isLeftSizeTransform = false;
+        this.transformPoints = [];
+        this.currentTransformPoints = [];
+        this.transformUndoItems = [];
     }
     addSubscriptions(isTransformMode) {
         super.addSubscriptions();
@@ -2680,6 +3587,14 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
             const point = this.canvasService.normalizePoint(e.center);
             isTransformMode ? this.transformStart(point) : this.drawStart(point);
         });
+        if (isTransformMode) {
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["fromEvent"])(window, 'click').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this.clear$))
+                .subscribe((e) => {
+                if (e.target !== this.canvasService.drawProject.view.element) {
+                    this.switchFromTransformToDraw();
+                }
+            });
+        }
         const pan$ = rxjs__WEBPACK_IMPORTED_MODULE_1__["Observable"].create((observer) => {
             this.hummerManager.on('pan', e => observer.next(e));
         }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["throttleTime"])(30));
@@ -2731,75 +3646,83 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
         }
     }
     drawEnd() {
-        this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
-            const params = { zoneIndex, zoneAngle, zoneStep };
-            const [zonePath, mirrorPath] = this.drawPaths[zoneIndex];
-            const exportPaths = [null, null];
-            const hitPaths = [null, null];
-            if (zonePath) {
-                exportPaths[0] = this.drawZoneEndIteration(Object.assign({ drawZonePath: zonePath }, params));
-                hitPaths[0] = this.createHitRect(zonePath);
-            }
-            if (mirrorPath) {
-                exportPaths[1] = this.drawZoneEndIteration(Object.assign({ drawZonePath: mirrorPath }, params));
-                hitPaths[1] = this.createHitRect(mirrorPath);
-            }
-            this.exportPaths[zoneIndex] = exportPaths;
-            this.hitPaths[zoneIndex] = hitPaths;
-        });
-        this.canvasService.drawProject.view.update();
-        this.isDrawing = false;
-        if (this.isEnabledTransform) {
+        const drawPaths = this.drawPaths;
+        const addPaths = () => {
+            this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
+                const params = { zoneIndex, zoneAngle, zoneStep };
+                const [zonePath, mirrorPath] = drawPaths[zoneIndex];
+                const exportPaths = [null, null];
+                const hitPaths = [null, null];
+                if (zonePath) {
+                    exportPaths[0] = this.drawZoneEndIteration(Object.assign({ drawZonePath: zonePath }, params));
+                    hitPaths[0] = this.createHitRect(zonePath);
+                }
+                if (mirrorPath) {
+                    exportPaths[1] = this.drawZoneEndIteration(Object.assign({ drawZonePath: mirrorPath }, params));
+                    hitPaths[1] = this.createHitRect(mirrorPath);
+                }
+                this.exportPaths[zoneIndex] = exportPaths;
+                this.hitPaths[zoneIndex] = hitPaths;
+            });
+            this.redraw();
             this.clearSubscriptions();
             this.addSubscriptions(true);
-        }
-        else {
-            this.finishDraw();
-        }
+        };
+        addPaths();
+        const undoItem = this.undoService.addCommand({
+            undo: () => {
+                const removePath = path => path.remove();
+                this.pathsApply(this.drawPaths, removePath);
+                this.pathsApply(this.hitPaths, removePath);
+                this.redraw();
+                this.drawPaths = [];
+                this.exportPaths = [];
+                this.hitPaths = [];
+                this.clearSubscriptions();
+                this.addSubscriptions();
+            },
+            redo: () => {
+                this.drawPaths = drawPaths;
+                this.pathsApply(this.drawPaths, path => paper__WEBPACK_IMPORTED_MODULE_5__["project"].activeLayer.addChild(path));
+                addPaths();
+                this.redraw();
+            }
+        });
+        this.transformUndoItems.push(undoItem);
+        this.isDrawing = false;
     }
     transformStart(point) {
-        let isHited = false;
-        this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
-            if (isHited) {
+        const tPoint = this.createPoint(point.x, point.y);
+        this.currentTransformPoints.push(point);
+        this.isTransforming = false;
+        const checkForHit = (path, isMirror) => {
+            if (this.isTransforming) {
                 return;
             }
-            const [zonePath, mirrorPath] = this.hitPaths[zoneIndex];
-            if (zonePath) {
-                const hitResult = zonePath.hitTest(point);
-                if (hitResult) {
-                    isHited = true;
-                    this.isMirrorTransform = false;
-                    this.hitedPath(point, zonePath, hitResult);
-                }
+            const hitResult = path.hitTest(tPoint);
+            if (hitResult || tPoint.isInside(path.bounds)) {
+                this.isTransforming = true;
+                this.hitedPath(tPoint, path, hitResult, isMirror);
             }
-            if (mirrorPath) {
-                const hitResult = mirrorPath.hitTest(point);
-                if (hitResult) {
-                    isHited = true;
-                    this.isMirrorTransform = true;
-                    this.hitedPath(point, mirrorPath, hitResult);
-                }
-            }
-        });
-        const hitResults = paper__WEBPACK_IMPORTED_MODULE_5__["project"].hitTestAll(new paper__WEBPACK_IMPORTED_MODULE_5__["Point"](point));
-        console.log('hitResults: ', hitResults);
-        console.log('isHited: ', isHited);
-        if (!isHited) {
-            this.finishDraw();
-            this.clearSubscriptions();
-            this.addSubscriptions();
+        };
+        this.pathsApply(this.hitPaths, checkForHit, tPoint);
+        if (!this.isTransforming) {
+            this.switchFromTransformToDraw();
+        }
+        else {
+            this.pathsApplyWithRedraw(this.hitPaths, (path) => {
+                path.selected = false;
+                path.opacity = 0;
+            });
         }
     }
+    switchFromTransformToDraw() {
+        this.finishDraw();
+        this.clearSubscriptions();
+        this.addSubscriptions();
+    }
     finishDraw() {
-        this.hitPaths.forEach(([zonePath, mirrorPath]) => {
-            if (zonePath) {
-                zonePath.remove();
-            }
-            if (mirrorPath) {
-                mirrorPath.remove();
-            }
-        });
-        this.canvasService.drawProject.view.update();
+        this.pathsApplyWithRedraw(this.hitPaths, path => path.remove());
         const drawStep = this.getState(this.drawPoints, this.toolParams);
         const drawStepKey = this.editorService.addUserDrawStep(drawStep);
         const allDrawPaths = this.getAllPaths(this.drawPaths);
@@ -2815,108 +3738,65 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
                 this.canvasService.addPaperItems(drawStepKey, allDrawPaths, allExportPaths);
             }
         });
+        this.transformUndoItems.forEach(undoItem => this.undoService.remove(undoItem));
+        this.transformUndoItems = [];
         this.drawPaths = [];
         this.exportPaths = [];
         this.drawPoints = [];
+        this.transformPoints = [];
         this.hitPaths = [];
     }
     transform({ x, y }) {
+        if (!this.isTransforming) {
+            return;
+        }
+        this.currentTransformPoints.push({ x, y });
         const tPoint = this.createPoint(x, y);
-        // tPoint.rotate()
-        const point = tPoint.subtract(this.transformOffsetPoint);
-        if (this.transfromType === TRANSFORM_TYPES.MOVE) {
-            const drawAngle = this.getDrawAngle(point);
-            console.log('drawAngle: ', drawAngle);
-            this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
-                const [mainPoint, mirrorPoint] = this.getDrawPoints(point, zoneStep, zoneAngle, drawAngle);
-                const [zoneHitPath, mirrorHitPath] = this.hitPaths[zoneIndex];
-                if (zoneHitPath) {
-                    zoneHitPath.position = this.isMirrorTransform ? mirrorPoint : mainPoint;
-                }
-                if (mirrorHitPath) {
-                    console.log(mirrorHitPath.position, mirrorPoint);
-                    mirrorHitPath.position = this.isMirrorTransform ? mainPoint : mirrorPoint;
-                }
-                const [zonePath, mirrorPath] = this.drawPaths[zoneIndex];
-                if (zonePath) {
-                    zonePath.position = this.isMirrorTransform ? mirrorPoint : mainPoint;
-                }
-                if (mirrorPath) {
-                    mirrorPath.position = this.isMirrorTransform ? mainPoint : mirrorPoint;
-                }
-            });
-            this.canvasService.drawProject.view.update();
+        if (this.transformer.transfromType === _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["TRANSFORM_TYPES"].MOVE) {
+            const pathMove = (path, isMirror, [mainPoint, mirrorPoint]) => {
+                path.position = isMirror ? mirrorPoint : mainPoint;
+            };
+            const point = this.transformer.updateTransformLastPoint(tPoint);
+            this.applyTransform(pathMove, point);
+        }
+        else if (this.transformer.transfromType === _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["TRANSFORM_TYPES"].ROTATE) {
+            const rotation = this.transformer.updateTransformRotation(tPoint);
+            this.applyTransform(path => path.rotate(rotation));
         }
         else {
-            // const point = tPoint.subtract(this.transformOffsetPoint);
-            const vector = tPoint.subtract(this.transfromStartPoint);
-            console.log('vector: ', vector);
-            const distance = (vector.x < 0 ? -1 : 1) * tPoint.getDistance(this.transfromStartPoint, false);
-            const drawAngle = this.getDrawAngle(tPoint);
-            const transformRotation = point.subtract(this.transformCenter).angle;
-            const transformWidth = this.isLeftSizeTransform
-                ? this.transfromStartSize.width - distance
-                : this.transfromStartSize.width + distance;
-            console.log('transformWidth: ', transformWidth);
-            const scale = transformWidth / this.transformWidth;
-            const rotation = transformRotation - this.transformRotation;
-            this.transformWidth = transformWidth;
-            this.transformRotation = rotation;
-            this.transformRotation++;
-            console.log('');
-            // console.log('width: ', width);
-            // console.log(' this.transfromStartSize.width: ',  this.transfromStartSize.width);
-            // console.log(' this.transformScale: ',  this.transformScale);
-            this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
-                const [mainPoint, mirrorPoint] = this.getDrawPoints(point, zoneStep, zoneAngle, drawAngle);
-                const [zoneHitPath, mirrorHitPath] = this.hitPaths[zoneIndex];
-                const [zonePath, mirrorPath] = this.drawPaths[zoneIndex];
-                if (zoneHitPath) {
-                    console.log('zoneHitPath: ', zoneHitPath);
-                    // zoneHitPath.rotate(rotation, zoneHitPath.position);
-                    zoneHitPath.scale(scale);
-                }
-                if (mirrorHitPath) {
-                    mirrorHitPath.scale(scale);
-                }
-                if (zonePath) {
-                    // zonePath.rotate(rotation, zoneHitPath.position);
-                    zonePath.scale(scale);
-                }
-                if (mirrorPath) {
-                    mirrorPath.scale(scale);
-                }
-            });
-            this.canvasService.drawProject.view.update();
-            console.log('distance: ', distance);
+            const prevWidth = this.transformer.transformWidth;
+            const transformWidth = this.transformer.updateTransformWidth(tPoint);
+            const scale = transformWidth / prevWidth;
+            this.applyTransform(path => path.scale(scale));
         }
+    }
+    applyTransform(applyFunc, point) {
+        this.pathsApply(this.hitPaths, applyFunc, point);
+        this.pathsApply(this.drawPaths, applyFunc, point);
+        this.pathsApply(this.exportPaths, applyFunc, point);
+        this.redraw();
     }
     transformEnd() {
-        console.log('transform end');
+        if (this.isTransforming) {
+            this.transformPoints.push(this.currentTransformPoints);
+            this.currentTransformPoints = [];
+            this.isTransforming = false;
+            this.pathsApplyWithRedraw(this.hitPaths, (path) => {
+                path.selected = true;
+                path.opacity = 1;
+            });
+        }
     }
-    hitedPath({ x, y }, path, hitResult) {
-        console.log('hitResult.type: ', hitResult.type);
-        if (hitResult.type === 'segment') {
-            this.transfromType = TRANSFORM_TYPES.RESIZE;
-        }
-        else {
-            this.transfromType = TRANSFORM_TYPES.MOVE;
-        }
-        this.transfromStartPoint = this.createPoint(x, y);
-        this.transfromStartSize = path.bounds.clone();
-        this.transformWidth = this.transfromStartSize.width;
-        this.transformRotation = path.rotation;
-        this.transformCenter = path.position;
-        this.transformOffsetPoint = this.transfromStartPoint.subtract(this.transformCenter);
-        this.isLeftSizeTransform = this.transformCenter.x > this.transfromStartPoint.x;
+    hitedPath(point, path, hitResult, isMirrorTransform) {
+        this.transformer = new _helpers_transformer__WEBPACK_IMPORTED_MODULE_6__["Transformer"](point, path, hitResult, isMirrorTransform);
     }
     createHitRect(path) {
         const size = path instanceof paper__WEBPACK_IMPORTED_MODULE_5__["Raster"] ? path.size : new paper__WEBPACK_IMPORTED_MODULE_5__["Size"](path.bounds.width, path.bounds.height);
         const rect = new paper__WEBPACK_IMPORTED_MODULE_5__["Path"].Rectangle(path.position, size);
         rect.transform(path.matrix);
         rect.position = path.position;
-        rect.fillColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
-        rect.opacity = 0;
+        rect.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
+        rect.strokeWidth = 2;
         rect.selected = true;
         rect.selectedColor = new paper__WEBPACK_IMPORTED_MODULE_5__["Color"]('red');
         return rect;
@@ -2924,6 +3804,38 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
     getCanvasCenterPoint() {
         const size = this.canvasService.getCanvasSize();
         return this.createPoint(size.width / 2, size.height / 2);
+    }
+    pathsApplyWithRedraw(zones, applyFunc, point) {
+        this.pathsApply(zones, applyFunc, point);
+        this.redraw();
+    }
+    pathsApply(paths, applyFunc, point) {
+        if (point) {
+            const angle = this.getDrawAngle(point);
+            this.zonesIteration((zoneIndex, zoneAngle, zoneStep) => {
+                const points = this.getDrawPoints(point, zoneStep, zoneAngle, angle);
+                const [zonePath, mirrorPath] = paths[zoneIndex];
+                if (zonePath) {
+                    applyFunc(zonePath, false, points);
+                }
+                if (mirrorPath) {
+                    applyFunc(mirrorPath, true, points);
+                }
+            });
+        }
+        else {
+            paths.forEach(([zonePath, mirrorPath]) => {
+                if (zonePath) {
+                    applyFunc(zonePath, false);
+                }
+                if (mirrorPath) {
+                    applyFunc(mirrorPath, true);
+                }
+            });
+        }
+    }
+    redraw() {
+        this.canvasService.drawProject.view.update();
     }
     zonesIteration(cb) {
         const step = 360 / this.zonesCount;
@@ -2958,6 +3870,11 @@ class EditorDrawToolBase extends _tool_base__WEBPACK_IMPORTED_MODULE_2__["Editor
             zonePaths.forEach(p => p && list.push(p));
             return list;
         }, []);
+    }
+    getState(points = [], toolParams = {}) {
+        const state = super.getState(points, toolParams);
+        const transformPoints = this.transformPoints;
+        return Object.assign({}, state, { transformPoints });
     }
 }
 
@@ -3029,8 +3946,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FillBucketTool", function() { return FillBucketTool; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _tap_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tap.base */ "./src/app/modules/mandala/tools/tap.base.ts");
-/* harmony import */ var _helpers_flood_fill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../helpers/flood-fill */ "./src/app/modules/mandala/helpers/flood-fill.ts");
-/* harmony import */ var _enums_tools__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../enums/tools */ "./src/app/modules/mandala/enums/tools.ts");
+/* harmony import */ var _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../helpers/magic-wand.js */ "./src/app/modules/mandala/helpers/magic-wand.js");
+/* harmony import */ var paper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! paper */ "./node_modules/paper/dist/paper-full.js");
+/* harmony import */ var paper__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(paper__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _enums_tools__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../enums/tools */ "./src/app/modules/mandala/enums/tools.ts");
+
 
 
 
@@ -3042,10 +3962,154 @@ class FillBucketTool extends _tap_base__WEBPACK_IMPORTED_MODULE_1__["EditorTapTo
         this.editorService = editorService;
         this.undoService = undoService;
         this.rasters = [];
-        this.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_3__["TOOLS"].FILL_BUCKET;
+        this.tool = _enums_tools__WEBPACK_IMPORTED_MODULE_4__["TOOLS"].FILL_BUCKET;
     }
     tap({ x, y }) {
-        Object(_helpers_flood_fill__WEBPACK_IMPORTED_MODULE_2__["floodFill"])(x, y);
+        const cvs = this.canvasService.fillProject.view.element;
+        const imageInfo = {
+            data: null,
+            width: cvs.width,
+            height: cvs.height,
+            context: cvs.getContext('2d')
+        };
+        const tempCanvas = document.createElement('canvas');
+        const tempCtx = tempCanvas.getContext('2d');
+        tempCtx.canvas.width = imageInfo.width;
+        tempCtx.canvas.height = imageInfo.height;
+        tempCtx.fillStyle = 'white';
+        tempCtx.fillRect(0, 0, imageInfo.width, imageInfo.height);
+        tempCtx.drawImage(cvs, 0, 0);
+        imageInfo.data = tempCtx.getImageData(0, 0, imageInfo.width, imageInfo.height);
+        const image = {
+            data: imageInfo.data.data,
+            width: imageInfo.width,
+            height: imageInfo.height,
+            bytes: 4
+        };
+        let mask = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].floodFill(image, x * 2, y * 2, 15);
+        mask = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].gaussBlurOnlyBorder(mask, 5);
+        const simplifyTolerant = 0;
+        const simplifyCount = 30;
+        let cs = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].traceContours(mask);
+        cs = _helpers_magic_wand_js__WEBPACK_IMPORTED_MODULE_2__["default"].simplifyContours(cs, simplifyTolerant, simplifyCount);
+        mask = null;
+        const group = new paper__WEBPACK_IMPORTED_MODULE_3__["Group"]();
+        // outer
+        for (const csItem of cs) {
+            if (csItem.inner) {
+                continue;
+            }
+            let myPath = new paper__WEBPACK_IMPORTED_MODULE_3__["Path"]();
+            myPath.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"](this.color);
+            myPath.fillColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"](this.color);
+            const ps = csItem.points;
+            myPath.position = new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps[0].x / 2, ps[0].y / 2);
+            for (let j = 1; j < ps.length; j++) {
+                myPath.add(new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps[j].x / 2, ps[j].y / 2));
+            }
+            myPath.closed = true;
+            // inner
+            for (const csItem2 of cs) {
+                if (!csItem2.inner) {
+                    continue;
+                }
+                const myPath2 = new paper__WEBPACK_IMPORTED_MODULE_3__["Path"]();
+                myPath2.strokeColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"]('red');
+                myPath2.fillColor = new paper__WEBPACK_IMPORTED_MODULE_3__["Color"]('green');
+                const ps2 = csItem2.points;
+                myPath2.position = new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps2[0].x / 2, ps2[0].y / 2);
+                for (let j = 1; j < ps2.length; j++) {
+                    myPath2.add(new paper__WEBPACK_IMPORTED_MODULE_3__["Point"](ps2[j].x / 2, ps2[j].y / 2));
+                }
+                myPath2.closed = true;
+                const newPath = myPath.exclude(myPath2);
+                myPath.remove();
+                myPath2.remove();
+                myPath = newPath;
+            }
+            myPath.remove();
+            group.addChild(myPath);
+        }
+        const drawStep = this.getState([{ x, y }]);
+        const drawStepKey = this.editorService.addUserDrawStep(drawStep);
+        this.canvasService.addPaperItems(drawStepKey, [group], [group]);
+        this.undoService.addCommand({
+            undo: () => {
+                this.editorService.removeUserDrawStep(drawStepKey);
+                this.canvasService.removePaperItems(drawStepKey);
+            },
+            redo: () => {
+                this.editorService.addUserDrawStep(drawStep, drawStepKey);
+                this.canvasService.addPaperItems(drawStepKey, [group], [group]);
+            }
+        });
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/modules/mandala/tools/helpers/transformer.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/modules/mandala/tools/helpers/transformer.ts ***!
+  \**************************************************************/
+/*! exports provided: TRANSFORM_TYPES, Transformer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TRANSFORM_TYPES", function() { return TRANSFORM_TYPES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Transformer", function() { return Transformer; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+var TRANSFORM_TYPES;
+(function (TRANSFORM_TYPES) {
+    TRANSFORM_TYPES[TRANSFORM_TYPES["RESIZE"] = 0] = "RESIZE";
+    TRANSFORM_TYPES[TRANSFORM_TYPES["MOVE"] = 1] = "MOVE";
+    TRANSFORM_TYPES[TRANSFORM_TYPES["ROTATE"] = 2] = "ROTATE";
+})(TRANSFORM_TYPES || (TRANSFORM_TYPES = {}));
+class Transformer {
+    constructor(transfromStartPoint, path, hitResult, isMirrorTransform) {
+        this.transfromStartPoint = transfromStartPoint;
+        this.path = path;
+        this.hitResult = hitResult;
+        this.isMirrorTransform = isMirrorTransform;
+        this.isLeftSizeTransform = false;
+        if (!hitResult) {
+            this.transfromType = TRANSFORM_TYPES.MOVE;
+        }
+        else if (hitResult.type === 'segment') {
+            this.transfromType = TRANSFORM_TYPES.ROTATE;
+        }
+        else {
+            this.transfromType = TRANSFORM_TYPES.RESIZE;
+        }
+        this.transfromStartSize = this.path.bounds.clone();
+        this.transformWidth = this.transfromStartSize.width;
+        this.transformCenter = path.position;
+        this.transformRotation = this.transfromStartPoint.subtract(this.transformCenter).angle;
+        this.transformOffsetPoint = this.transfromStartPoint.subtract(this.transformCenter);
+        this.isLeftSizeTransform = this.transformCenter.x > this.transfromStartPoint.x;
+    }
+    updateTransformLastPoint(tPoint) {
+        const point = tPoint.subtract(this.transformOffsetPoint);
+        this.transformLastPoint = point;
+        return point;
+    }
+    updateTransformRotation(tPoint) {
+        const v1 = tPoint.subtract(this.transformCenter);
+        const rotation = v1.angle - this.transformRotation;
+        this.transformRotation += rotation;
+        return rotation;
+    }
+    updateTransformWidth(tPoint) {
+        const vector = tPoint.subtract(this.transfromStartPoint);
+        const distance = (vector.x < 0 ? -1 : 1) * tPoint.getDistance(this.transfromStartPoint, false);
+        const transformWidth = this.isLeftSizeTransform
+            ? this.transfromStartSize.width - distance
+            : this.transfromStartSize.width + distance;
+        this.transformWidth = transformWidth;
+        return transformWidth;
     }
 }
 
@@ -3206,7 +4270,10 @@ class EditorToolBase {
     }
     getState(points = [], toolParams = {}) {
         return {
-            tool: Object.assign({ type: this.tool }, toolParams),
+            tool: {
+                type: this.tool,
+                params: Object.assign({}, toolParams)
+            },
             color: this.color,
             zonesCount: this.zonesCount,
             isDrawMirrored: this.isDrawMirrored,
